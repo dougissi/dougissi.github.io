@@ -4,6 +4,8 @@ title: Counting Triangles in Node Graphs
 tags: [Networks]
 embedding_path: /assets/counting_triangles/Counting Triangles in Node Graphs.html
 ---
+![Counting Triangles Icon](/assets/counting_triangles/counting_triangles_icon.jpg)
+
 ## Motivation
 One day at work with [Humanyze](https://humanyze.com/), I came across a particularly elegant and mysterious method
 to count the number of triangles in a node graph (in python).
@@ -17,6 +19,10 @@ This is saying "the number of triangles in `S` is equal to first calculating `S`
 and then getting the trace of the result (i.e., the sum of the values on diagonal) and dividing it by 6."
 
 But what does any of that have to do with triangles? I mean, the _trace_, really?
+
+_\[Update: if you're curious about counting more than just triangles, 
+also check out my [next post](/2020/02/10/counting-polygons-in-node-graphs.html) 
+on counting triangles, quadrilaterals, and pentagons\]_
 
 ## Why it works
 Let's consider a simple node graph
