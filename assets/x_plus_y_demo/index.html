@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Flip Cards</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <h1 id="title">X + Y Card Flipping Interactive Demo</h1>
+  <p>Rules: click any red card to flip it; the one to the right will also flip</p>
+  <p>Expected result: no matter the order, you'll eventually flip all cards</p>
+  <div class="num_input">
+    Number of cards: <input type="number" id="num" value=8>
+    <div type="button" class="go">Go!</div>
+  </div>
+  <div class="container">
+    <div class="cards-row">
+      <!-- cards go here -->
+    </div>
+
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="game.js" charset="utf-8"></script>
+</body>
+
+</html>
