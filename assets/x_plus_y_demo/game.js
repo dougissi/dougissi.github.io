@@ -1,4 +1,3 @@
-var gameHasStarted = false;
 var num_cards = 8;
 var face_down = [];
 
