@@ -100,6 +100,25 @@ h1 {
   color: var(--gray);
 }
 
+#keyboard {
+  margin-top: 1rem;
+  padding: 10px;
+  background-color: lightsteelblue;
+}
+
+.key {
+  background-color: gray;
+  border-radius: 10px;
+  margin: 5px;
+  padding: 10px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.half {
+  flex: 0.5;
+}
+
 .hidden-form {
   display: none;
 }

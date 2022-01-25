@@ -468,20 +468,18 @@ function getAndSubmitGuessResult() {
   return guessResult;
 }
 
-// when key is pressed
-$(document).on("keydown", function(event) {
+
+
+function keyActions(key, keyCode) {
   // TODO: pause while in end game?
 
-
-  const key = event.key;
-  // console.log(key);
-  if (key.length == 1 & (/[a-zA-Z]/).test(key)) {
+  if (keyCode >= 65 & keyCode <= 90) {  // key is letter A - Z
     if (ownWordIndex < numLetters) {
       addLetterToTile(key.toLowerCase(), ownWordIndex);
       ownWord += key;
       ownWordIndex++;
     }
-  } else if (key == "Backspace") {
+  } else if (keyCode == 8) {  // key is backspace / delete
     if (ownWordIndex > 0) {
       ownWordIndex -= 1;
       ownWord = ownWord.slice(0, ownWordIndex);
@@ -493,7 +491,7 @@ $(document).on("keydown", function(event) {
         guess = null;
       }
     }
-  } else if (key == "Enter") {
+  } else if (keyCode == 13) {  // key is enter
     if (guess) {
       if (!$(".evaluate-button").prop("disabled")) {
         $(".evaluate-button").click();
@@ -508,6 +506,20 @@ $(document).on("keydown", function(event) {
       }
     }
   }
+}
+
+// when key is pressed
+$(document).on("keydown", function(event) {
+  const key = event.key;
+  const keyCode = event.keyCode;
+  keyActions(key, keyCode);
+})
+
+// when keyboard button is clicked
+$(".key").click( function() {
+  let key = $(this).text();
+  let keyCode = this.id;
+  keyActions(key, keyCode);
 })
 
 // when top word radio button gets clicked
