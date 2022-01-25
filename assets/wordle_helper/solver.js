@@ -516,7 +516,7 @@ $(document).on("keydown", function(event) {
 })
 
 // when keyboard button is clicked
-$(".key-button").click( function() {
+$(".keyButton").click( function() {
   let key = $(this).text();
   let keyCode = this.id;
   keyActions(key, keyCode);
