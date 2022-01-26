@@ -1,16 +1,6 @@
-class MapWithDefault extends Map {
-  get(key) {
-    if (!this.has(key)) this.set(key, this.default());
-    return super.get(key);
-  }
-
-  constructor(defaultFunction, entries) {
-    super(entries);
-    this.default = defaultFunction;
-  }
-}
-
 // Global variables
+const today = getDateToday();
+let date = today;
 let numLetters = 5;
 let round = null;
 let validWords = null;
@@ -24,14 +14,92 @@ let ownWordIndex = null;
 let topWords = null;
 let guess = null;
 let guessResultsByPosition = null;
+let ooo = null;
+const greenRGB = getCSSVariable("green");
+const yellowRGB = getCSSVariable("yellow");
+const grayRGB = getCSSVariable("gray");
+const lightGrayRGB = getCSSVariable("lightgray");
+const letterToKeyCode = new Map([
+  ["q", 81],
+  ["w", 87],
+  ["e", 69],
+  ["r", 82],
+  ["t", 84],
+  ["y", 89],
+  ["u", 85],
+  ["i", 73],
+  ["o", 79],
+  ["p", 80],
+  ["a", 65],
+  ["s", 83],
+  ["d", 68],
+  ["f", 70],
+  ["g", 71],
+  ["h", 72],
+  ["j", 74],
+  ["k", 75],
+  ["l", 76],
+  ["z", 90],
+  ["x", 88],
+  ["c", 67],
+  ["v", 86],
+  ["b", 66],
+  ["n", 78],
+  ["m", 77],
+]);
 
-addLetterColorSelectors();
-$(".letter-color-selectors").hide()
 
+class MapWithDefault extends Map {
+  get(key) {
+    if (!this.has(key)) this.set(key, this.default());
+    return super.get(key);
+  }
+
+  constructor(defaultFunction, entries) {
+    super(entries);
+    this.default = defaultFunction;
+  }
+}
+
+
+buildDateSelector();
 startGame();
 
+
+
+function getDateToday() {
+  let today = new Date();
+  const offset = today.getTimezoneOffset();
+  today = new Date(today.getTime() - (offset * 60 * 1000));
+  today = today.toISOString().split("T")[0];
+  return today;
+}
+
+function getCSSVariable(name) {
+  return getComputedStyle(document.documentElement).getPropertyValue(`--${name}`);
+}
+
+function getOOO() {
+  let xd = "";
+  for (const x of date) {
+    xd += numberXXX.get(x);
+  }
+  const xw = xxx.get(xd);
+  let o = "";
+  for (const x of xw) {
+    o += xxxLetter.get(x);
+  }
+  return o;
+}
+
+function buildDateSelector() {
+  dateSelectorHTML = `<div class="container-fluid"><label for="date-selector">Wordle date:</label>\n<input type="date" id="date-selector"value="${today}"min="2021-06-19" max="${today}" onchange="dateChange();"></div>`
+  $(dateSelectorHTML).insertBefore("#main-content");
+}
+
+
 function startGame() {
-  round = 0;
+  round = 1;
   knownLetterMinCounts = new Map();
   knownLetterMaxCounts = new Map();
   regex = "";
@@ -49,6 +117,7 @@ function startGame() {
   for (let i = 0; i < numLetters; i++) {
     guessResultsByPosition.push(null);
   }
+  ooo = getOOO();
 
   validWords = wordleAnswers;
   topWords = getNextWordOptions();
@@ -82,7 +151,7 @@ function getSortedWordScores() {
     wordScores.get(score).push(word)
   }
 
-  return new Map([...wordScores.entries()].sort((a, b) => (b[0] - a[0])))  // sort by descending score
+  return new Map([...wordScores.entries()].sort((a, b) => (b[0] - a[0]))) // sort by descending score
 }
 
 // // score based on letter frequency in valid words (anywhere + by position)
@@ -162,7 +231,7 @@ function getNextWordOptions() {
 
   for (let maxNewDuplicates = 0; maxNewDuplicates < numLetters; maxNewDuplicates++) {
     for (const [score, words] of sortedWordScores) {
-      if (score < maxScore)  {
+      if (score < maxScore) {
         break;
       }
       for (const word of words) {
@@ -173,7 +242,7 @@ function getNextWordOptions() {
           matchedWords.add(word);
           const dupId = `${maxNewDuplicates}|${score}`;
           dupIdtoTopWords.get(dupId).push(word);
-          topWords.set(word, `duplicate new letters: ${maxNewDuplicates}`)
+          topWords.set(word, `new duplicates: ${maxNewDuplicates}`)
           maxScore = score
         }
       }
@@ -193,11 +262,60 @@ function getNextWordOptions() {
 }
 
 function union(setA, setB) {
-    let _union = new Set(setA)
-    for (let elem of setB) {
-        _union.add(elem)
+  let _union = new Set(setA)
+  for (let elem of setB) {
+    _union.add(elem)
+  }
+  return _union
+}
+
+function arrayFirstMatchingValueRemoved(arr, value) {
+  let updatedArr = [];
+  valRemoved = false;
+  for (const item of arr) {
+    if (!valRemoved & item === value) {
+      valRemoved = true;
+    } else {
+      updatedArr.push(item);
     }
-    return _union
+  }
+  return updatedArr;
+}
+
+/*
+correct: "+"
+incorrect, in word but wrong spot: "o"
+incorrect, not in word: "-"
+*/
+function getGuessResult(guess) {
+  let remaining = [];
+  let guessMap = new Map();
+  let results = [];
+
+  // first look for correct letters
+  for (let i = 0; i < numLetters; i++) {
+    const g = guess[i];
+    const o = ooo[i];
+    if (g == o) {
+      results.push("+");
+    } else {
+      results.push(null);
+      remaining.push(o);
+      guessMap.set(i, g);
+    }
+  }
+
+  // evaluate incorrect letters
+  for (const [i, letter] of guessMap) {
+    if (remaining.includes(letter)) {
+      results[i] = "o";
+      remaining = arrayFirstMatchingValueRemoved(remaining, letter);
+    } else {
+      results[i] = "-"
+    }
+  }
+
+  return results.join("")
 }
 
 function evaluateGuess(guessWord, guessResult) {
@@ -205,7 +323,11 @@ function evaluateGuess(guessWord, guessResult) {
     throw `guessed word and result must both contain ${numLetters} letters`
   }
   let guessKnownLetterMinCounts = new MapWithDefault(() => 0);
-  let guessLettersByResult = new Map([["+", new Set()], ["o", new Set()], ["-", new Set()]])
+  let guessLettersByResult = new Map([
+    ["+", new Set()],
+    ["o", new Set()],
+    ["-", new Set()]
+  ])
 
   for (let i = 0; i < numLetters; i++) {
     const guessLetter = guessWord[i];
@@ -280,9 +402,6 @@ function updateValidWords() {
   let updatedValidWords = new Set();
 
   for (const word of validWords) {
-    // if (invalidWords.has(word)) {
-    //   continue;
-    // }
 
     if (!word.match(regex)) {
       continue;
@@ -313,7 +432,6 @@ function updateValidWords() {
 }
 
 function evaluateGuessAndGetNextWordOptions(guessWord, guessResult) {
-  // TODO increment round
   evaluateGuess(guessWord, guessResult);
   updateRegEx();
   updateValidWords();
@@ -332,29 +450,19 @@ function evaluateGuessAndGetNextWordOptions(guessWord, guessResult) {
 let clientIP = "";
 
 $.getJSON("https://api.ipify.org?format=json", function(data) {
- clientIP = data.ip;
+  clientIP = data.ip;
 })
 
 
 function updateValidWordsText() {
   $("#num-valid-words").text(`Count: ${validWords.size}`);
   $(".valid-words-box").text(`${[...validWords].join(", ")}`);
-
-  // MAKE EACH VALID WORD SELECTABLE
-  // $(".valid-word-option").remove();
-  //
-  // let validWordsHTMLs = [];
-  // for (const word of validWords) {
-  //   validWordHTML = `<div class="row valid-word-option"><div class="col-9"><input type="radio" name="guess-selector" id="valid-${word}-radio-button" value="${word}">\n<label for="valid-${word}-radio-button">${word}</label></div><div class="col-3"><button class="invalid-button" value="${word}">Invalid word?</button></div></div>`
-  //   validWordsHTMLs.push(validWordHTML);
-  // }
-  // $(".valid-words-box").append(validWordsHTMLs.join(""));
 }
 
 function buildTopWordsSelector() {
   $(".top-word-option").remove()
   for (const [word, description] of topWords) {
-    $(".top-word-suggestions").append(`<div class="row top-word-option"><div class="col-2"><input type="radio" name="guess-selector" id="${word}-radio-button" value="${word}">\n<label for="${word}-radio-button">${word}</label></div><div class="col-10">${description}</div></div>`)
+    $(".top-word-suggestions").append(`<div class="row top-word-option"><div class="col-3"><input type="radio" name="guess-selector" id="${word}-radio-button" value="${word}">\n<label for="${word}-radio-button">${word}</label></div><div class="col-9">${description}</div></div>`)
   }
 }
 
@@ -368,141 +476,116 @@ function addEmptyGuessTiles() {
   $(".letter-tiles-grid").append(emptyTilesRow);
 }
 
-function addLetterToTile(letter, i) {
-  $(`#row${round - 1}col${i}`).text(letter);
+function getLetterId(i) {
+  return `row${round - 1}col${i}`;
 }
 
-function addGuessLettersToTiles(guess, round) {
+function addLetterToTile(letter, i) {
+  $(`#${getLetterId(i)}`).text(letter);
+}
+
+function addGuessLettersToTiles(guess) {
   for (let i = 0; i < numLetters; i++) {
     const letter = guess[i];
     addLetterToTile(letter, i);
   }
 }
 
-function removeGuessLettersFromTiles(round) {
-  addGuessLettersToTiles(" ".repeat(numLetters), round);
-}
-
-function addLetterColorSelectors() {
-  let colorsHTMLs = [];
-  for (const [color, resultKey] of [["green", "+"], ["yellow", "o"], ["gray", "-"]]) {
-    let lettersHTMLs = [];
-    for (let i = 0; i < numLetters; i++) {
-      letterHTML = `<div class="col"><input type="radio" class="letter-color-selector" name="letter-color-selector${i}" id="${color}-${i}" value="${resultKey}">\n<label for="${color}-${i}" class="${color}-text">${color}</label></div>`;
-      lettersHTMLs.push(letterHTML);
+function colorGuess(guess, guessResult) {
+  for (let i = 0; i < numLetters; i++) {
+    const letter = guess[i];
+    const result = guessResult[i];
+    const letterId = getLetterId(i);
+    let color = "";
+    if (result == "+") {
+      color = "green";
+    } else if (result == "o") {
+      color = "yellow";
+    } else if (result == "-") {
+      color = "gray";
+    } else {
+      throw `guess result values can only be '+', 'o', '-', not '${result}'`
     }
-    let colorRow = `<div class="row">${lettersHTMLs.join("")}</div>`
-    colorsHTMLs.push(colorRow);
-  }
-  let colorSelectorsHTML = colorsHTMLs.join("");
-  $(".letter-color-selectors").append(colorSelectorsHTML);
 
-  // evaluate button below
-  let buttonRow = '<div class="row"><div class="col-6 text-center"><button class="guess-button-row this-is-the-word-button">This is the word!</button></div><div class="col-6 text-center"><button class="guess-button-row evaluate-button" disabled>Evaluate</button></div></div>'
-  $(".letter-color-selectors").append(buttonRow);
+    // color tile
+    $(`#${letterId}`).css("background-color", `var(--${color})`);
+    $(`#${letterId}`).css("color", "white");
+    $(`#${letterId}`).css("border", "none");
+
+    // color keyboard key
+    let keyCode = letterToKeyCode.get(letter);
+    let key = $(`#${keyCode}`);
+    console.log(key)
+    let keyColor = key.css("background-color");
+    console.log(keyColor);
+    if (keyColor == lightGrayRGB) {
+      console.log("got here");
+      key.css("background-color", `var(--${color})`);
+    } else if (keyColor == grayRGB) {
+      if (color == "yellow" | color == "green") {
+        key.css("background-color", `var(--${color})`);
+      }
+    } else if (keyColor == yellowRGB) {
+      if (color == "green") {
+        key.css("background-color", `var(--${color})`);
+      }
+    }
+  }
 }
 
-function clearLetterColorSelections() {
-  for (let i = 0; i < numLetters; i++) {
-    $(`input[name="letter-color-selector${i}"]`).prop("checked", false);
-  }
-  $(".evaluate-button").prop("disabled", true);
-  for (let i = 0; i < numLetters; i++) {
-    let letterId = `row${round - 1}col${i}`;
-    $(`#${letterId}`).css("background-color", "initial");
-    $(`#${letterId}`).css("color", "initial");
-    $(`#${letterId}`).css("border", "var(--border)");
-  }
-}
-
-function addGuess(word) {
-  addGuessLettersToTiles(word, round);
-  clearLetterColorSelections();
-  $(".letter-color-selectors").show();
-  $("#own-word").val("");
-}
-
-// // when enter pressed after entering own word text
-// $("#own-word").keyup( function() {
-//   if (event.keyCode === 13) {
-//     $("#submit-own-word").click();
-//   }
-// })
-//
-// // when own word submit button gets clicked
-// $("#submit-own-word").click( function() {
-//   let ownWord = $("#own-word").val();
-//
-//   // validate
-//   if (validWords.has(ownWord)) {
-//     addGuess(ownWord);
-//     guess = ownWord;
-//   } else {
-//     console.log(`${ownWord} not in valid word list`);
-//   }
-// })
-
-// function submitInvalidWord(word) {
-//   //let invalid_form = "https://docs.google.com/forms/d/e/1FAIpQLSdfVRv4IB4qEFwSvE99OLOsL2NWy7rNI6txpgOaPtMWwqS-7A/viewform?usp=pp_url&entry.1009398697=73.223.117.235&entry.1683530625=zzzzz"
-//   $("#invalid-word-client-ip").val(clientIP);
-//   $("#invalid-word-submission").val(word);
-//   $("#invalid-word-submit-button").click();
-// }
-
-function getAndSubmitGuessResult() {
+function submitGuessResult(guessResult) {
   // get source of guess
   let guessSource = "own";
-  if ($(`#${guess}-radio-button`).prop("checked")) {  // radio button for guess is checked
+  if ($(`#${guess}-radio-button`).prop("checked")) { // radio button for guess is checked
     guessSource = "suggested";
   }
 
-  let guessResult = guessResultsByPosition.join("");
-
+  $("#guess-form-game-date").val(date);
   $("#guess-form-client-ip").val(clientIP);
   $("#guess-form-round").val(round);
   $("#guess-form-guess-word").val(guess);
   $("#guess-form-result").val(guessResult);
   $("#guess-form-source").val(guessSource);
   $("#guess-form-submit-button").click();
-
-  return guessResult;
 }
 
 
 
 function keyActions(key, keyCode) {
-  // TODO: pause while in end game?
-
-  if (keyCode >= 65 & keyCode <= 90) {  // key is letter A - Z
-    if (ownWordIndex < numLetters) {
-      addLetterToTile(key.toLowerCase(), ownWordIndex);
-      ownWord += key;
-      ownWordIndex++;
+  if ($(".overlay").length) {  // overlay exists
+    if (keyCode == 13) {
+      $(".overlay-button").click();
     }
-  } else if (keyCode == 8) {  // key is backspace / delete
-    if (ownWordIndex > 0) {
-      ownWordIndex -= 1;
-      ownWord = ownWord.slice(0, ownWordIndex);
-      addLetterToTile(" ", ownWordIndex);
-      if (guess) {
-        $(".letter-color-selectors").hide()
-        clearLetterColorSelections();
-        $(`#${guess}-radio-button`).prop("checked", false);
-        guess = null;
+  } else {
+    if (keyCode >= 65 & keyCode <= 90) { // key is letter A - Z
+      if (ownWordIndex < numLetters) {
+        addLetterToTile(key.toLowerCase(), ownWordIndex);
+        ownWord += key;
+        ownWordIndex++;
       }
-    }
-  } else if (keyCode == 13) {  // key is enter
-    if (guess) {
-      if (!$(".evaluate-button").prop("disabled")) {
-        $(".evaluate-button").click();
+    } else if (keyCode == 8) { // key is backspace / delete
+      if (ownWordIndex > 0) {
+        ownWordIndex -= 1;
+        ownWord = ownWord.slice(0, ownWordIndex);
+        addLetterToTile(" ", ownWordIndex);
+        if (guess) {
+          // $(".letter-color-selectors").hide()
+          // clearLetterColorSelections();
+          $(`#${guess}-radio-button`).prop("checked", false);
+          guess = null;
+        }
       }
-    } else if (ownWord.length == numLetters) {
-      if (wordleAcceptableWords.has(ownWord)) {
-        addGuess(ownWord);
-        guess = ownWord;
-        $(`#${guess}-radio-button`).prop("checked", true);
-      } else {
-        alert(`"${ownWord}" not in Wordle word list; please enter a different word`);
+    } else if (keyCode == 13) { // key is enter
+      if (ownWord.length == numLetters) {
+        if (wordleAcceptableWords.has(ownWord)) {
+          guess = ownWord;
+          $(`#${guess}-radio-button`).prop("checked", true);
+          processGuess();
+        } else {
+          let invalidWordOverlay = `<div class="overlay"><h2>"${ownWord}" not in Wordle word list</h2><p>Please enter a different word.</p><button class="overlay-button continue">Continue</button></div>`
+          $(invalidWordOverlay).insertBefore($("#main-content"));
+          $("#date-selector").prop("disabled", true);
+        }
       }
     }
   }
@@ -516,62 +599,16 @@ $(document).on("keydown", function(event) {
 })
 
 // when keyboard button is clicked
-$(".button-key").click( function() {
+$(".button-key").click(function() {
   let key = $(this).text();
   let keyCode = this.id;
   keyActions(key, keyCode);
 })
 
-// when top word radio button gets clicked
-$(document).on("click", 'input[name="guess-selector"]', function () {
-  guess = this.value;
-  addGuess(guess);
-  ownWord = guess;
-  ownWordIndex = 5;
-})
-
-function checkCanEvaluateGuess() {
-  let allLettersHaveResults = true;
-  for (let i = 0; i < numLetters; i++) {
-    if (!guessResultsByPosition[i]) {
-      allLettersHaveResults = false;
-      break;
-    }
-  }
-  if (allLettersHaveResults) {
-    $(".evaluate-button").prop("disabled", false);
-  }
-}
-
-// when letter color selector clicked
-$(".letter-color-selector").click( function() {
-  let [color, i] = this.id.split("-");
-  let resultKey = this.value;
-  let letterId = `row${round - 1}col${i}`
-  guessResultsByPosition[i] = resultKey;
-  $(`#${letterId}`).css("background-color", `var(--${color})`);
-  $(`#${letterId}`).css("color", "white");
-  $(`#${letterId}`).css("border", "none");
-  checkCanEvaluateGuess();
-})
-
-function endGame(verdict) {
-  $(".letter-color-selectors").hide();
-  let header = null;
-  if (verdict == "won") {
-    header = "You did it!";
-  } else if (verdict == "lost") {
-    header = "No answers remain :("
-  } else {
-    throw "verdict can only be 'won' or 'lost'";
-  }
-  let endgameOverlay = `<div class="end-game"><h2>${header}</h2><button class="play-again">Play again?</button></div>`
-  $(endgameOverlay).insertBefore( $("#main-content") );
-}
-
-// when evaluate button clicked
-$(".evaluate-button").click( function() {
-  let guessResult = getAndSubmitGuessResult();
+function processGuess() {
+  guessResult = getGuessResult(guess);
+  colorGuess(guess, guessResult);
+  submitGuessResult(guessResult);
 
   // check if found final word
   let resultsSet = new Set(guessResult);
@@ -592,29 +629,46 @@ $(".evaluate-button").click( function() {
   ownWord = "";
   ownWordIndex = 0;
   addEmptyGuessTiles();
+}
 
-  // reset guess results by position
-  for (let i = 0; i < numLetters; i++) {
-    guessResultsByPosition[i] = null;
-  }
-
-  clearLetterColorSelections();
-  $(".letter-color-selectors").hide();
+// when top word radio button gets clicked
+$(document).on("click", 'input[name="guess-selector"]', function() {
+  guess = this.value;
+  addGuessLettersToTiles(guess);
+  ownWord = guess;
+  ownWordIndex = 5;
+  processGuess();
 })
 
-// when "this is the word" button is clicked
-$(".this-is-the-word-button").click ( function () {
-  // click all green
-  for (let i = 0; i < numLetters; i++) {
-    $(`#green-${i}`).click();
+function endGame(verdict) {
+  // $(".letter-color-selectors").hide();
+  let header = null;
+  if (verdict == "won") {
+    header = `You found "${ooo}"!`;
+  } else if (verdict == "lost") {
+    header = "No answers remain :("
+  } else {
+    throw "verdict can only be 'won' or 'lost'";
   }
-
-  getAndSubmitGuessResult();
-  endGame("won");
-})
+  let endgameOverlay = `<div class="overlay"><h2>${header}</h2><p>Want to play again?</p><p>Remember: you can also play Wordle from any date in the past.</p><button class="overlay-button play-again">Let's go</button></div>`
+  $(endgameOverlay).insertBefore($("#main-content"));
+  $("#date-selector").prop("disabled", true);
+}
 
 // when play again? button is clicked
 $(document).on("click", ".play-again", function() {
-  $(".end-game").remove();
+  $(".overlay").remove();
+  $("#date-selector").prop("disabled", false);
   restartGame();
 })
+
+// when continue button is clicked
+$(document).on("click", ".continue", function() {
+  $(".overlay").remove();
+  $("#date-selector").prop("disabled", false);
+})
+
+function dateChange() {
+  date = $("#date-selector").val();
+  restartGame();
+}
