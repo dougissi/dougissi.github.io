@@ -613,10 +613,6 @@ $(".button-key").mousedown(function() {
   keyActions(key, keyCode);
 })
 
-// $("#65").mousedown(function() {
-//   keyActions("a", "65");
-// })
-
 function processGuess() {
   guessResult = getGuessResult(guess);
   colorGuess(guess, guessResult);
