@@ -15,6 +15,7 @@ let topWords = null;
 let guess = null;
 let guessResultsByPosition = null;
 let ooo = null;
+const defaultNumTries = 6;
 const greenRGB = getCSSVariable("green");
 const yellowRGB = getCSSVariable("yellow");
 const grayRGB = getCSSVariable("gray");
@@ -62,6 +63,8 @@ class MapWithDefault extends Map {
 }
 
 
+
+
 buildDateSelector();
 startGame();
 
@@ -93,10 +96,15 @@ function getOOO() {
 }
 
 function buildDateSelector() {
-  dateSelectorHTML = `<div class="container-fluid"><label for="date-selector">Wordle date:</label>\n<input type="date" id="date-selector"value="${today}"min="2021-06-19" max="${today}" onchange="dateChange();"></div>`
+  dateSelectorHTML = `<div class="container-fluid"><div class="row"><div class="col-lg-2"></div><div class="col-lg-5 text-center"><label for="date-selector">Wordle date:</label>\n<input type="date" id="date-selector"value="${today}"min="2021-06-19" max="${today}" onchange="dateChange();"></div><div class="col-lg-5"></div></div></div>`
   $(dateSelectorHTML).insertBefore("#main-content");
 }
 
+function addEmptyGuessRows() {
+  for (let row = 0; row < defaultNumTries; row++) {
+    addEmptyTilesRow(row);
+  }
+}
 
 function startGame() {
   round = 1;
@@ -123,11 +131,14 @@ function startGame() {
   topWords = getNextWordOptions();
   updateValidWordsText();
   buildTopWordsSelector();
-  addEmptyGuessTiles();
+  addEmptyGuessRows();
 }
 
 function restartGame() {
   $(".letter-tiles-grid").empty();
+  for (const [letter, keyCode] of letterToKeyCode) {
+    $(`#${keyCode}`).css("background-color", "var(--lightgray)");
+  }
   startGame();
 }
 
@@ -462,14 +473,14 @@ function updateValidWordsText() {
 function buildTopWordsSelector() {
   $(".top-word-option").remove()
   for (const [word, description] of topWords) {
-    $(".top-word-suggestions").append(`<div class="row top-word-option"><div class="col-3"><input type="radio" name="guess-selector" id="${word}-radio-button" value="${word}">\n<label for="${word}-radio-button">${word}</label></div><div class="col-9">${description}</div></div>`)
+    $(".top-word-suggestions").append(`<div class="row top-word-option"><div class="col-4"><input type="radio" name="guess-selector" id="${word}-radio-button" value="${word}">\n<label for="${word}-radio-button">${word}</label></div><div class="col-8">${description}</div></div>`)
   }
 }
 
-function addEmptyGuessTiles() {
+function addEmptyTilesRow(row) {
   let tilesHTMLs = [];
   for (let i = 0; i < numLetters; i++) {
-    tileHTML = `<div class="col"><div class="tile" id="row${round - 1}col${i}"></div></div>`
+    tileHTML = `<div class="col"><div class="tile" id="row${row}col${i}"></div></div>`
     tilesHTMLs.push(tileHTML);
   }
   let emptyTilesRow = `<div class="row">${tilesHTMLs.join("")}</div>`
@@ -515,11 +526,8 @@ function colorGuess(guess, guessResult) {
     // color keyboard key
     let keyCode = letterToKeyCode.get(letter);
     let key = $(`#${keyCode}`);
-    console.log(key)
     let keyColor = key.css("background-color");
-    console.log(keyColor);
     if (keyColor == lightGrayRGB) {
-      console.log("got here");
       key.css("background-color", `var(--${color})`);
     } else if (keyColor == grayRGB) {
       if (color == "yellow" | color == "green") {
@@ -628,7 +636,9 @@ function processGuess() {
   guess = null;
   ownWord = "";
   ownWordIndex = 0;
-  addEmptyGuessTiles();
+  if (!$(`#row${round - 1}col0`).length) {  // row of tiles for round doesn't exist
+    addEmptyTilesRow(round - 1);
+  }
 }
 
 // when top word radio button gets clicked

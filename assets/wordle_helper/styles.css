@@ -11,8 +11,13 @@ div {
   margin-top: 1rem;
 }
 
+#homepage {
+  height: 50px;
+}
+
 #header {
   border-bottom: 1px solid black;
+  margin-top: auto;
 }
 
 h1 {
@@ -27,7 +32,7 @@ h1 {
   text-align: center;
   padding: 10px;
   width: 30%;
-  position: absolute;
+  position: fixed;
   left: 0;
   right: 0;
   margin-left: auto;
@@ -42,7 +47,7 @@ h1 {
     justify-content: center;
     align-items: center;
     margin: 5px auto;
-    font-size: 2rem;
+    font-size: 50px;
     line-height: 2rem;
     font-weight: bold;
     vertical-align: middle;
