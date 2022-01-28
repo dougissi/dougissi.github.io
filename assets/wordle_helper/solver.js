@@ -4,6 +4,7 @@ let date = today;
 let numLetters = 5;
 let round = null;
 let validWords = null;
+let acceptableWords = null;
 let knownLetterMinCounts = null;
 let knownLetterMaxCounts = null;
 let regex = null;
@@ -64,7 +65,7 @@ class MapWithDefault extends Map {
 
 
 
-
+$("#suggestions").hide();
 buildDateSelector();
 startGame();
 
@@ -96,8 +97,8 @@ function getOOO() {
 }
 
 function buildDateSelector() {
-  dateSelectorHTML = `<div class="container-fluid"><div class="row"><div class="col-lg-2"></div><div class="col-lg-5 text-center"><label for="date-selector">Wordle date:</label>\n<input type="date" id="date-selector"value="${today}"min="2021-06-19" max="${today}" onchange="dateChange();"></div><div class="col-lg-5"></div></div></div>`
-  $(dateSelectorHTML).insertBefore("#suggestions");
+  let dateSelectorHTML = `<label for="date-selector">Wordle date:</label>\n<input type="date" id="date-selector" value="${today}" min="2021-06-19" max="${today}" onchange="dateChange();">`;
+  $("#left-spacer").append(dateSelectorHTML);
 }
 
 function addEmptyGuessRows() {
@@ -128,8 +129,10 @@ function startGame() {
   ooo = getOOO();
 
   validWords = wordleAnswers;
+  acceptableWords = wordleAcceptableWords;
+  updateWordListText(validWords, "valid");
+  updateWordListText(acceptableWords, "acceptable");
   topWords = getNextWordOptions();
-  updateValidWordsText();
   buildTopWordsSelector();
   addEmptyGuessRows();
 }
@@ -144,7 +147,7 @@ function restartGame() {
 
 // score based on letter frequency in valid words
 function getSortedWordScores() {
-  // letter frequency
+  // letter frequency from answer words
   let letterFreq = new MapWithDefault(() => 0);
   for (const word of validWords) {
     for (const letter of word) {
@@ -152,9 +155,9 @@ function getSortedWordScores() {
     }
   }
 
-  // scores
+  // scores of each acceptable word
   let wordScores = new MapWithDefault(() => []);
-  for (const word of validWords) {
+  for (const word of acceptableWords) {
     let score = 0;
     for (const letter of word) {
       score += letterFreq.get(letter)
@@ -409,10 +412,10 @@ function updateRegEx() {
   }
 }
 
-function updateValidWords() {
-  let updatedValidWords = new Set();
+function updateWordList(wordList) {
+  let updatedWordList = new Set();
 
-  for (const word of validWords) {
+  for (const word of wordList) {
 
     if (!word.match(regex)) {
       continue;
@@ -435,17 +438,34 @@ function updateValidWords() {
       }
     }
     if (hasCorrectLetterCounts) {
-      updatedValidWords.add(word);
+      updatedWordList.add(word);
     }
   }
 
-  validWords = updatedValidWords;
+  return updatedWordList;
+}
+
+function updateWordListText(wordList, type) {
+  if (type != "valid" & type != "acceptable") {
+    throw "type must be 'valid' or 'acceptable'";
+  }
+
+  $(`#num-${type}-words`).text(`Count: ${wordList.size}`);
+  $(`#${type}-words-box`).text(`${[...wordList].join(", ")}`);
+}
+
+function updateValidAndAcceptableWords() {
+  validWords = updateWordList(validWords);
+  updateWordListText(validWords, "valid")
+
+  acceptableWords = updateWordList(acceptableWords);
+  updateWordListText(acceptableWords, "acceptable")
 }
 
 function evaluateGuessAndGetNextWordOptions(guessWord, guessResult) {
   evaluateGuess(guessWord, guessResult);
   updateRegEx();
-  updateValidWords();
+  updateValidAndAcceptableWords();
   topWords = getNextWordOptions();
 }
 
@@ -463,12 +483,6 @@ let clientIP = "";
 $.getJSON("https://api.ipify.org?format=json", function(data) {
   clientIP = data.ip;
 })
-
-
-function updateValidWordsText() {
-  $("#num-valid-words").text(`Count: ${validWords.size}`);
-  $(".valid-words-box").text(`${[...validWords].join(", ")}`);
-}
 
 function buildTopWordsSelector() {
   $(".top-word-option").remove()
@@ -627,7 +641,6 @@ function processGuess() {
 
   evaluateGuessAndGetNextWordOptions(guess, guessResult);
   buildTopWordsSelector();
-  updateValidWordsText();
   if (validWords.size == 0) {
     endGame("lost");
     return;
@@ -648,6 +661,20 @@ $(document).on("click", 'input[name="guess-selector"]', function() {
   ownWord = guess;
   ownWordIndex = 5;
   processGuess();
+})
+
+// when suggestions button gets clicked
+$("#suggestions-button").click( function() {
+  let buttonText = this.innerText;
+  if (buttonText.search("Show") >= 0) {
+    $(this).text("Hide Suggestions");
+    $("#suggestions").show();
+  } else if (buttonText.search("Hide") >= 0) {
+    $(this).text("Show Suggestions");
+    $("#suggestions").hide();
+  } else {
+    throw "suggestions button must contain 'Show' or 'Hide'"
+  }
 })
 
 function endGame(verdict) {

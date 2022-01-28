@@ -36,12 +36,12 @@
   <!-- main content -->
   <div class="container-fluid" id="main-content">
     <div class="row">
-      <div class="col-lg-4"></div>
+      <div class="col-lg-4" id="left-spacer"></div>
       <div class="col-lg-4" id="guesses">
         <div class="letter-tiles-grid">
         </div>
       </div>
-      <div class="col-lg-4"></div>
+      <div class="col-lg-4" id="right-spacer"></div>
     </div>
   </div>
 
@@ -90,7 +90,39 @@
     <div class="col-lg-3"></div>
   </div>
 
-  <div class="container-fluid" id="suggestions">
+  <div class="container-fluid" id="suggestions-box">
+    <div class="row">
+      <div class="col text-center">
+        <button type="button" class="btn btn-primary" id="suggestions-button">Show Suggestions</button>
+      </div>
+    </div>
+    <div class="row" id="suggestions">
+      <div class="col-lg-4" id="word-selector">
+        <div class="top-word-suggestions">
+          <h5>Top Word Suggestions</h5>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="all-valid-words">
+          <h5>Remaining Possible Answers</h5>
+          <p id="num-valid-words"></p>
+          <div class="words-box" id="valid-words-box">
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="all-acceptable-words">
+          <h5>Remaining Acceptable Guesses</h5>
+          <p id="num-acceptable-words"></p>
+          <div class="words-box" id="acceptable-words-box">
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- <div class="container-fluid" id="suggestions">
     <div class="row">
       <div class="col-lg-4"></div>
       <div class="col-lg-4" id="word-selector">
@@ -107,7 +139,7 @@
       </div>
       <div class="col-lg-4"></div>
     </div>
-  </div>
+  </div> -->
 
 
   <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
