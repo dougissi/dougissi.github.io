@@ -66,6 +66,7 @@ class MapWithDefault extends Map {
 
 
 $("#suggestions").hide();
+$("#instructions").hide();
 buildDateSelector();
 startGame();
 
@@ -677,6 +678,11 @@ $("#suggestions-button").click( function() {
   } else {
     throw "suggestions button must contain 'Show' or 'Hide'"
   }
+})
+
+// when instructions button gets clicked
+$("#instructions-button").click( function() {
+  $("#instructions").toggle();
 })
 
 function endGame(verdict) {
