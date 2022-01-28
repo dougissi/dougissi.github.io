@@ -141,6 +141,7 @@ function restartGame() {
   $(".letter-tiles-grid").empty();
   for (const [letter, keyCode] of letterToKeyCode) {
     $(`#${keyCode}`).css("background-color", "var(--lightgray)");
+    $(`#${keyCode}`).css("color", "initial");
   }
   startGame();
 }
@@ -155,9 +156,13 @@ function getSortedWordScores() {
     }
   }
 
-  // scores of each acceptable word
+  // scores
   let wordScores = new MapWithDefault(() => []);
-  for (const word of acceptableWords) {
+  let wordList = validWords;
+  // if (validWords.size > 1) {
+  //   wordList = acceptableWords;
+  // }
+  for (const word of wordList) {
     let score = 0;
     for (const letter of word) {
       score += letterFreq.get(letter)
@@ -262,15 +267,6 @@ function getNextWordOptions() {
       }
     }
   }
-
-  // // log top options
-  // for (const [dupId, topWords] of dupIdtoTopWords) {
-  //   let [maxNewDups, score] = dupId.split("|");
-  //   console.log(`\nTop words score: ${score} (<= ${maxNewDups} duplicates from unknown letters)`);
-  //   for (const word of topWords) {
-  //     console.log(word);
-  //   }
-  // }
 
   return topWords;
 }
@@ -487,7 +483,10 @@ $.getJSON("https://api.ipify.org?format=json", function(data) {
 function buildTopWordsSelector() {
   $(".top-word-option").remove()
   for (const [word, description] of topWords) {
-    $(".top-word-suggestions").append(`<div class="row top-word-option"><div class="col-4"><input type="radio" name="guess-selector" id="${word}-radio-button" value="${word}">\n<label for="${word}-radio-button">${word}</label></div><div class="col-8">${description}</div></div>`)
+    // let topWordHTML = `<div class="row top-word-option"><div class="col-4"><input type="radio" name="guess-selector" id="${word}-radio-button" value="${word}">\n<label for="${word}-radio-button">${word}</label></div><div class="col-8">${description}</div></div>`;
+    // let topWordHTML = `<div class="row top-word-option"><div class="col-1"><button type="button" class="btn btn-primary top-word-button">${word}</button></div><div class="col-11">${description}</div></div>`;
+    let topWordHTML = `<div class="d-flex flex-row align-items-center top-word-option"><div><button type="button" class="btn btn-primary top-word-button">${word}</button></div><div>${description}</div></div>`;
+    $(".top-word-suggestions").append(topWordHTML);
   }
 }
 
@@ -543,13 +542,16 @@ function colorGuess(guess, guessResult) {
     let keyColor = key.css("background-color");
     if (keyColor == lightGrayRGB) {
       key.css("background-color", `var(--${color})`);
+      key.css("color", "white")
     } else if (keyColor == grayRGB) {
       if (color == "yellow" | color == "green") {
         key.css("background-color", `var(--${color})`);
+        key.css("color", "white")
       }
     } else if (keyColor == yellowRGB) {
       if (color == "green") {
         key.css("background-color", `var(--${color})`);
+        key.css("color", "white")
       }
     }
   }
@@ -654,9 +656,9 @@ function processGuess() {
   }
 }
 
-// when top word radio button gets clicked
-$(document).on("click", 'input[name="guess-selector"]', function() {
-  guess = this.value;
+// when top word button gets clicked
+$(document).on("click", '.top-word-button', function() {
+  guess = this.innerText;
   addGuessLettersToTiles(guess);
   ownWord = guess;
   ownWordIndex = 5;
@@ -678,7 +680,6 @@ $("#suggestions-button").click( function() {
 })
 
 function endGame(verdict) {
-  // $(".letter-color-selectors").hide();
   let header = null;
   if (verdict == "won") {
     header = `You found "${ooo}"!`;
