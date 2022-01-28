@@ -97,7 +97,7 @@ function getOOO() {
 
 function buildDateSelector() {
   dateSelectorHTML = `<div class="container-fluid"><div class="row"><div class="col-lg-2"></div><div class="col-lg-5 text-center"><label for="date-selector">Wordle date:</label>\n<input type="date" id="date-selector"value="${today}"min="2021-06-19" max="${today}" onchange="dateChange();"></div><div class="col-lg-5"></div></div></div>`
-  $(dateSelectorHTML).insertBefore("#main-content");
+  $(dateSelectorHTML).insertBefore("#suggestions");
 }
 
 function addEmptyGuessRows() {
