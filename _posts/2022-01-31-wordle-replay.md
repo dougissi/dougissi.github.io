@@ -4,7 +4,7 @@ title: Wordle Replay
 tags: [Strategy]
 embedding_path: https://www.wordlereplay.com/
 ---
-![Wordle Helper Share Icon](/assets/images/wordle_replay_share_icon.png)
+![Wordle Helper Share Icon]({{ page.embedding_path}}assets/images/wordle_replay_share_icon_1200x600.png)
 
 ## Motivation
 At the beginning of 2022, a coworker first introduced me to the daily word guessing game called
