@@ -56,7 +56,7 @@ accept this assumption then I believe you must limit yourself not flipping over 
 In the end, it doesn't really matter.
 
 I wrote a python function called `flip_til_you_cant_game(num_cards)` that represents playing this
-game where you choose your turns at random. 
+game where you choose your turns at random.
 Before I share the code, here's a sample output for a game with 20 cards.
 Each arrow points to the card that was used for the move.
 
@@ -215,4 +215,4 @@ def flip_til_you_cant_game(num_cards: int = 20):
 Below you'll find an interactive demo. Once you've solve this simple 8-card version,
 you can move on to choosing whatever number of cards you want.
 
-Here is a [link]({{ page.embedding_path }}) to a full-page view if you'd prefer.
+Here is a <a href="{{ page.embedding_path }}" target="_blank">link</a> to a full-page view if you'd prefer.

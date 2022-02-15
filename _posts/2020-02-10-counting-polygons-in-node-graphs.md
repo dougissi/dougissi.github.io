@@ -60,5 +60,5 @@ for my solution to those two cases.
 ## Code Examples
 Be sure to check out the plotting that visually identifies the triangles, quadrilaterals, and pentagons in a node graph.
 
-Here is a [link]({{ page.embedding_path }}) to a full-page view of the notebook.
+Here is a <a href="{{ page.embedding_path }}" target="_blank">link</a> to a full-page view of the notebook.
 Or you can download a copy of the .ipynb file [here](https://www.dougissi.com/counting-polygons/assets/counting-polygons-in-node-graphs.ipynb).

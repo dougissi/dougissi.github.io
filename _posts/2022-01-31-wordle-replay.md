@@ -8,7 +8,7 @@ embedding_path: https://www.wordlereplay.com/
 
 ## Motivation
 At the beginning of 2022, a coworker first introduced me to the daily word guessing game called
-[Wordle](https://www.nytimes.com/games/wordle/) that was taking the world by storm.
+<a href="https://www.nytimes.com/games/wordle/" target="_blank">Wordle</a> that was taking the world by storm.
 I was intrigued from the very first time I played, which is rare enough since I don't play many games.
 That same night I shared the game with my wife and mother-in-law, and when I later discovered that they both had gotten hooked too, I knew that this game was special.
 
@@ -26,10 +26,10 @@ After each guess, which itself must be a word in the Wordle game's word list, ea
 * yellow: that particular letter is in the word but NOT in the correct spot
 * gray: that particular letter is NOT in the word.
 
-If you haven't played, you really ought to [check it out](https://www.powerlanguage.co.uk/wordle/).
+If you haven't played, you really ought to <a href="https://www.nytimes.com/games/wordle/" target="_blank">check it out</a>.
 
 ## What did I build?
-I ended up building what I've called [Wordle Replay]({{ page.embedding_path }}) with the following features:
+I ended up building what I've called <a href="{{ page.embedding_path }}" target="_blank">Wordle Replay</a> with the following features:
 * stays in sync with the real Wordle as the days go by (i.e., refreshes at midnight of the timezone of each user)
 * provides what it considers to be the top suggestions for the user's next guess.
 * allows the user to play a Wordle from any day in the past.
@@ -45,6 +45,6 @@ Without getting too lost in the details, this is how I implemented the feature t
 6. Restart at step 1.
 
 ## Wordle Replay tool
-Embedded below is the live version of Wordle Replay. Navigate to [wordlereplay.com]({{ page.embedding_path }}) for a full-page view. It works well on mobile too.
+Embedded below is the live version of Wordle Replay. Navigate to <a href="{{ page.embedding_path }}" target="_blank">wordlereplay.com</a> for a full-page view. It works well on mobile too.
 
 Enjoy!
