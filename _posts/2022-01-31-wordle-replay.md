@@ -39,8 +39,8 @@ Without getting too lost in the details, this is how I implemented the feature t
 
 1. Starting with the list of all valid words, calculate the frequency of each letter.
 2. Score each word based on the letter frequency (words with more frequently used letters get a higher score).
-3. Choose the words with the highest scores (broken out be the number of new duplicate letters -- words with fewer duplicates tend provide more information).
-4. Once a user enter's a guess, compare the guess with the actual word to get a breakdown of the guess' green/yellow/gray letters.
+3. Choose the words with the highest scores (broken out by the number of duplicate letters -- words with fewer duplicates tend to provide more information).
+4. Once a user enters a guess, compare the guess with the actual word to get a breakdown of the guess' green/yellow/gray letters.
 5. Based on the guess' green/yellow/gray breakdown, remove any words from the valid word list that would be inconsistent with the results of the guess.
 6. Restart at step 1.
 
