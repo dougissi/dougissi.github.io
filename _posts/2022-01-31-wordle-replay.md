@@ -30,7 +30,7 @@ If you haven't played, you really ought to <a href="https://www.nytimes.com/game
 
 ## What did I build?
 I ended up building what I've called <a href="{{ page.embedding_path }}" target="_blank">Wordle Replay</a> with the following features:
-* stays in sync with the real Wordle as the days go by (i.e., refreshes at midnight of the timezone of each user)
+* ~~stays in sync with the real Wordle as the days go by (i.e., refreshes at midnight of the timezone of each user).~~ As of November 7, 2022, the _New York Times_, [who purchased Wordle](https://www.nytimes.com/2022/01/31/business/media/new-york-times-wordle.html), hides future words, thereby preventing me or anyone else from being able to automatically stay up to date. For now, staying up to date has become a manual process.
 * provides what it considers to be the top suggestions for the user's next guess.
 * allows the user to play a Wordle from any day in the past.
 
