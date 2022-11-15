@@ -63,7 +63,7 @@ While the IRS 1040 form instructions are very thorough, they don't give (as far 
 
 Here are the tax obligations by different levels of taxable income, with the red dotted lines representing the various tax brackets for single people.
 
-![2021 Taxable Income vs Taxes Owed - Single](/assets/tax_brackets/2021_taxable_income_vs_taxes_owed_single.png)
+![2021 Taxable Income vs Taxes Owed - Single](/assets/tax_brackets/2021_taxable_income_vs_taxes_owed_sing.png)
 
 Here's the same idea but for those with filing status "married filing jointly."
 
