@@ -3,6 +3,10 @@ layout: post_with_embedding
 title: Is It Bad to Move to a Higher Tax Bracket?
 tags: [Visualization]
 embedding_path: /assets/tax_brackets/Tax_Owed_Across_Tax_Brackets.html
+image:
+  path: /assets/tax_brackets/taxes_are_confusing_180x110.png
+  width: 180
+  height: 110
 ---
 
 <!-- Instagram NPR post embedding -->
