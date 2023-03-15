@@ -16,12 +16,12 @@ I couldn't help but think that I could make a tool that could help solve these p
 After all, I had been looking for an excuse to improve my web development skills.
 
 ## What is Wordle?
-The premise is refreshingly simple: guess the secret 5-letter English word in as few tries as possible but no more than 6.
+The premise is refreshingly simple: each day, guess the secret 5-letter English word in as few tries as possible but no more than 6.
 
 Throughout the whole world, everyone tries to guess the same secret word.
 And once you've found it, you have to wait until the next day to play again on the new secret word.
 
-After each guess, which itself must be a word in the Wordle game's word list, each letter will change to one of three colors:
+After each guess, which itself must be a valid 5-letter word, each letter will change to one of three colors:
 * green: that particular letter is in the word AND in the correct spot
 * yellow: that particular letter is in the word but NOT in the correct spot
 * gray: that particular letter is NOT in the word.
@@ -30,7 +30,7 @@ If you haven't played, you really ought to <a href="https://www.nytimes.com/game
 
 ## What did I build?
 I ended up building what I've called <a href="{{ page.embedding_path }}" target="_blank">Wordle Replay</a> with the following features:
-* ~~stays in sync with the real Wordle as the days go by (i.e., refreshes at midnight of the timezone of each user).~~ As of November 7, 2022, the _New York Times_, [who purchased Wordle](https://www.nytimes.com/2022/01/31/business/media/new-york-times-wordle.html), hides future words, thereby preventing me or anyone else from being able to automatically stay up to date. For now, staying up to date has become a manual process.
+* ~~stays in sync with the real Wordle as the days go by (i.e., refreshes at midnight of the timezone of each user).~~ As of November 7, 2022, the _New York Times_, [who purchased Wordle](https://www.nytimes.com/2022/01/31/business/media/new-york-times-wordle.html), hides future words, thereby preventing me or anyone else from being able to _automatically_ stay up to date. For now, staying up to date has become a manual process.
 * provides what it considers to be the top suggestions for the user's next guess.
 * allows the user to play a Wordle from any day in the past.
 
