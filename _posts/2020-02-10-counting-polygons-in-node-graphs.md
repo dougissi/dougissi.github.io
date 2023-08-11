@@ -1,7 +1,7 @@
 ---
 layout: post_with_embedding
 title: Counting Polygons in Node Graphs
-tags: [Networks]
+tags: [Graph Algorithms]
 embedding_path: https://www.dougissi.com/counting-polygons/jupyter-notebook.html
 ---
 ![Counting Polygons Icon](https://www.dougissi.com/counting-polygons/assets/counting_polygons_icon.jpg)

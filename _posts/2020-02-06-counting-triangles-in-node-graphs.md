@@ -1,7 +1,7 @@
 ---
 layout: post_with_embedding
 title: Counting Triangles in Node Graphs
-tags: [Networks]
+tags: [Graph Algorithms]
 embedding_path: https://www.dougissi.com/counting-triangles/jupyter-notebook.html
 ---
 ![Counting Triangles Icon](https://www.dougissi.com/counting-triangles/assets/counting_triangles_icon.jpg)
