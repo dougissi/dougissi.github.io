@@ -247,6 +247,10 @@ Graph: 1->[2,3] 2->[1,3] 3->[1,2]
 > shortestPathLens
 [(1,[(2,1),(3,1)]),(2,[(1,1),(3,1)]),(3,[(1,1),(2,1)])]
 ```
+The three items of the output array of `shortestPathLens` can be interpreted as:
+* For node `1`, the shortest path to node `2` is 1, and the shortest path to `3` is 1
+* For node `2`, the shortest path to node `1` is 1, and the shortest path to `3` is 1
+* For node `3`, the shortest path to node `1` is 1, and the shortest path to `2` is 1
 
 ## Code Reference
 
