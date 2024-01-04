@@ -10,4 +10,4 @@ My name is Doug Issichopoulos, and I recently earned a master's degree in comput
 
 This website is a repository of posts on some of my personal software projects that I believe could be useful to others and/or demonstrate a particularly fun intersection of computer science and mathematics.
 
-Feel free to reach out on [LinkedIn](https://www.linkedin.com/in/dougissi).
+Feel free to reach out on <a href="https://www.linkedin.com/in/dougissi" target="_blank">LinkedIn</a>.
