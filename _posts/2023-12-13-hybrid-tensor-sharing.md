@@ -31,5 +31,3 @@ _"Cloud-based serverless platforms offer an efficient solution for deploying Dee
 
 ## Research Paper
 Embedded below is our full research paper. Navigate <a href="{{ page.embedding_path }}" target="_blank">here</a> for a full-page view.
-
-We've submitted our paper to the <a href="https://cis.temple.edu/ccgrid2024/" target="_blank">CCGRID 2024</a> conference, and we'll hear in mid February if we've been accepted.
