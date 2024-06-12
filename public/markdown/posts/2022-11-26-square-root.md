@@ -56,7 +56,7 @@ In the edge case where `x` is between 0 and 1, we can adjust the initial conditi
 
 ## Solution
 
-```
+```python
 def nth_root(x: float, n: int):
     """Calculate the nth root of x""" 
     

@@ -85,7 +85,7 @@ A graph can be built by passing in its list of edges. For example, consider the 
 ![triangle graph](/assets/graph_algos_haskell/triangle.png)
 
 It can be built from the REPL by simply entering the information on the three edges:
-```
+```console
 > graph (1,2) (1,3) (2,3)
 Graph: 1->[2,3] 2->[1,3] 3->[1,2]
 ```
@@ -157,7 +157,7 @@ traversal g src =
 ```
 
 From the REPL, once the user has built a graph, a traversal from a given node can be obtained.
-```
+```console
 > graph (1,2) (1,3) (2,3)
 Graph: 1->[2,3] 2->[1,3] 3->[1,2]
 > traversal 1
@@ -241,7 +241,7 @@ bfs g s e =
 There is little work to be done once we have a working breadth-first search algorithm to extend it to find the shortest paths between all nodes (if a path exists, of course). See [here](https://github.com/dougissi/stateful-graph-algos-haskell/blob/ecc88b8624d22ac181da89047f7be3337468535a/src/GraphsCommon.hs#L58-L76) for the implementation.
 
 From the REPL, once the user has built a graph, the list of shortest paths can be obtained.
-```
+```console
 > graph (1,2) (1,3) (2,3)
 Graph: 1->[2,3] 2->[1,3] 3->[1,2]
 > shortestPathLens

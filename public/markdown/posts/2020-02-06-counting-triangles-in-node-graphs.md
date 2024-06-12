@@ -30,7 +30,7 @@ Let's consider a simple node graph
 
 ### Starting with S
 The matrix representation `S` of this node graph would be the following
-```
+```text
 S =
 
     A   B   C   D   E
@@ -53,7 +53,7 @@ Notice also that there's no way to cross just one edge and get from `A` to `E`, 
 Let's review how each element of S<sup>2</sup> would be calculated.
 
 `(A, A)` of S<sup>2</sup> is derived from the following
-```
+```text
 # first row                    # first column
 
     A   B   C   D   E              A
@@ -78,7 +78,7 @@ and then traveling another edge (perhaps the same one) and return to `A`.
 Namely, there are 2 ways: `A` -> `B` -> `A` and `A` -> `C` -> `A`.
 
 Now let's derive `(A, B)` of S<sup>2</sup>
-```
+```text
 # first row                    # second column
 
     A   B   C   D   E              B
@@ -103,7 +103,7 @@ and then traveling another edge (perhaps the same one) and end up at `B`.
 Namely, there is only 1 way: `A` -> `C` -> `B`.
 
 Completing the product results in the following
-```
+```text
 S.dot(S) =
 
     A   B   C   D   E
@@ -117,7 +117,7 @@ For the reasons described, S<sup>2</sup> has the following characteristics:
 each `(i, j)` represents the number of ways you can cross **exactly 2 edges** when you start at `i` and end at `j`.
 
 ### S • S • S or S<sup>3</sup>
-```
+```text
 S.dot(S).dot(S) =
 
     A   B   C   D   E

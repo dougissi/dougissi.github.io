@@ -2,6 +2,8 @@ import { Link } from '@mui/material';
 import { Link as RouterLink } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
+import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter';
+// import {dark} from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 const MARKDOWN_FOLDER = '/markdown';
 
@@ -81,6 +83,23 @@ function Markdown({ fileName }) {
 
                         // otherwise regular image
                         return <img className="markdown-img" alt={alt} src={src} {...rest}>{children}</img>;
+                    },
+                    code(props) {
+                        const {children, className, node, ...rest} = props
+                        const match = /language-(\w+)/.exec(className || '')
+                        return match ? (
+                            <SyntaxHighlighter
+                                {...rest}
+                                PreTag="div"
+                                children={String(children).replace(/\n$/, '')}
+                                language={match[1]}
+                                // style={dark}
+                            />
+                        ) : (
+                            <code {...rest} className={className}>
+                                {children}
+                            </code>
+                        )
                     }
                 }}
             >

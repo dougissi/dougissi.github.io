@@ -240,15 +240,13 @@ If you open the SVG file in a text editor, you'll see somewhat understandable XM
 
 One important note is that you'll have to change each `style` attribute within the SVG markup text to fit the React syntax as opposed to a simple string, as shown below.
 
-{% raw %}
-```
+```js
 {/* original */}
 style="display:none;fill:#000000;fill-opacity:0;stroke:#000000;stroke-width:4;stroke-dasharray:none"
 
 {/* updated */}
 style={{display: "inline", fill: "#000000", fillOpacity: 0, stroke: "#000000", strokeWidth: 4, strokeDasharray: "none"}}
 ```
-{% endraw %}
 
 ## HaleyIssi.com Embedding
 Embedded below is the live version of haleyissi.com. The products shown on the page come from this [this Google sheet](https://docs.google.com/spreadsheets/d/13r8RJmgC9v8P7m70wSA43sYLSyvzMfpTJRtafiJB2pw/edit?usp=sharing).
