@@ -61,7 +61,7 @@ game where you choose your turns at random.
 Before I share the code, here's a sample output for a game with 20 cards.
 Each arrow points to the card that was used for the move.
 
-```python
+```console
 >>> flip_til_you_cant_game(20)
 11111111111111111111 (base 10: 1048575)
 
