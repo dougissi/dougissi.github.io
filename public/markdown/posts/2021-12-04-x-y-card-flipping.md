@@ -14,8 +14,8 @@ a little bit more tangible. Be sure to go all the way to the bottom to play with
 simulation I made for this game!
 
 But before we get into that, let's take a peek at the video.
-![TEST](/wow)
-<iframe width="560" height="315" src="https://www.youtube.com/embed/04x4ZdLpN-0?si=K17zvUcbZ_YoqZPG&amp;start=83" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+![X+Y Film Clip YouTube](embedding/x+y-youtube-iframe)
 
 To reiterate, the game is simple:
 * you have a row of cards all face down
