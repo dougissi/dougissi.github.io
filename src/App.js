@@ -1,9 +1,9 @@
 import './App.css';
 import { Route, Routes } from "react-router-dom";
+
+import NavBar from './components/NavBar';
 import Markdown from './components/Markdown';
-import { Stack } from '@mui/material';
-import { Link } from '@mui/material';
-import { Link as RouterLink } from 'react-router-dom';
+import HomePage from './components/HomePage';
 
 let posts = [
   {
@@ -80,29 +80,12 @@ posts = posts.map((post) => {
   return {...post, date: date, path: path};
 });
 
-const Blog = () => {
-  return (
-    <Stack spacing={2}>
-      {posts.map(post => {
-        return (
-          <Link
-            key={`link-${post.path}`}
-            component={RouterLink}
-            to={post.path}
-          >
-            {`${post.title} — ${post.date}`}
-          </Link>
-        );
-      })}
-    </Stack>
-  );
-};
-
 function App() {
   return (
     <div className="App">
+      <NavBar />
       <Routes>
-        <Route path='/' element={<Blog />} />
+        <Route path='/' element={<HomePage posts={posts} />} />
         {posts.map(post => (
           <Route
             key={`route-${post.path}`}

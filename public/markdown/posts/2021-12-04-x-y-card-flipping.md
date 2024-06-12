@@ -14,9 +14,10 @@ a little bit more tangible. Be sure to go all the way to the bottom to play with
 simulation I made for this game!
 
 But before we get into that, let's take a peek at the video.
-<iframe width="560" height="315" src="https://www.youtube.com/embed/mYAahN1G8Y8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+![TEST](/wow)
+<iframe width="560" height="315" src="https://www.youtube.com/embed/04x4ZdLpN-0?si=K17zvUcbZ_YoqZPG&amp;start=83" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-<br>To reiterate, the game is simple:
+To reiterate, the game is simple:
 * you have a row of cards all face down
 * a move consists of turning a face-down card up AND turning over the card immediately to the right (which might be face-up or face-down)
 

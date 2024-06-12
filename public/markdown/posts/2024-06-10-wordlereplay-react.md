@@ -5,9 +5,7 @@ tags: [Web Development]
 embedding_path: https://wordlereplay.com
 ---
 
-<p align="center">
-  <img src="/assets/wordlereplay/wordlereplay_react_mui.png" />
-</p>
+![Wordle Replay + React + MUI](/assets/wordlereplay/wordlereplay_react_mui.png)
 
 ## Motivation:
 In early 2022, I created the original version of WordleReplay.com as my _first_ web development project. I built it using [JQuery](https://jquery.com/) and [Bootstrap](https://getbootstrap.com/). For details on the original version, see my [previous blog post](https://www.dougissi.com/2022/01/31/wordle-replay.html). Even though it was rough, by 2024 it was getting about 2,000+ daily active users and had seen 8.3 million guesses entered, which far exceeded what I could have ever imagined for the site.

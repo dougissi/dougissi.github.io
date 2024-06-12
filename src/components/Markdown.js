@@ -2,6 +2,7 @@ import { Link } from '@mui/material';
 import { Link as RouterLink } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
+// import rehypeRaw from "rehype-raw";
 
 const MARKDOWN_FOLDER = '/markdown';
 
@@ -25,6 +26,8 @@ function Markdown({ fileName }) {
     return (
         <div className="Markdown">
             <ReactMarkdown
+                // rehypePlugins={[rehypeRaw]}
+                // remarkPlugins={[remarkIframe]}
                 components={{
                     a(props) {
                         const {node, href, children, ...rest} = props;
@@ -41,6 +44,16 @@ function Markdown({ fileName }) {
                                 {children}
                             </Link>
                         );
+                    },
+                    img(props) {
+                        const {node, children, alt, src, ...rest} = props;
+                        if (src === '/wow') {
+                            return <iframe width="560" height="315" src="https://www.youtube.com/embed/04x4ZdLpN-0?si=K17zvUcbZ_YoqZPG&amp;start=83" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>;
+                        }
+                        return <img className="markdown-img" alt={alt} src={src} {...rest}>{children}</img>;
+                    },
+                    iframe(props) {
+                        return <div>hey DOUG!</div>;
                     }
                 }}
             >
