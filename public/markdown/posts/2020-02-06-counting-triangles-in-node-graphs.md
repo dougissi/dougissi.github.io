@@ -23,7 +23,7 @@ on counting triangles, quadrilaterals, and pentagons\]_
 Let's consider a simple node graph
 ![Simple Node Graph](https://www.dougissi.com/counting-triangles/assets/simple_node_graph.jpg)
 
-### Starting with $S$
+### Matrix Representation $S$
 The matrix representation $S$ of this node graph would be the following
 ```text
 S =
@@ -43,7 +43,7 @@ so that's why we see 0 in the $(A, A)$ position.
 But there's just one way you can get from $A$ to $B$ via one edge, so that's why we see a 1 in the $(A, B)$ position.
 Notice also that there's no way to cross just one edge and get from $A$ to $E$, so that's why there's a 0 in the $(A, E)$ position.
 
-### $S \cdot S$ or $S^2$
+### Matrix Multiplication $S^2$
 
 Let's review how each element of $S^2$ would be calculated.
 
@@ -111,7 +111,7 @@ E   1   1   0   1   1
 For the reasons described, $S^2$ has the following characteristics:
 each $(i, j)$ represents the number of ways you can cross **exactly 2 edges** when you start at $i$ and end at $j$.
 
-### S • S • S or $S^3$
+### Matrix Multiplication $S^3$
 ```text
 S.dot(S).dot(S) =
 
