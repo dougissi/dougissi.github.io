@@ -1,14 +1,11 @@
----
-layout: post_with_embedding
-title: Wordle Replay
-tags: [Web Development]
-embedding_path: https://www.dougissi.com/wordle-replay/
----
 ![Wordle Helper Share Icon](/assets/wordlereplay/wordle_replay_share_icon_1200x600.png)
+
+## [Update June 2024]
+I recently overhauled the Wordle Replay tool to use React and Material UI. Check out my [more recent post](/wordlereplay-react) for details.
 
 ## Motivation
 At the beginning of 2022, a coworker first introduced me to the daily word guessing game called
-<a href="https://www.nytimes.com/games/wordle/" target="_blank">Wordle</a> that was taking the world by storm.
+[Wordle](https://www.nytimes.com/games/wordle/) that was taking the world by storm.
 I was intrigued from the very first time I played, which is rare enough since I don't play many games.
 That same night I shared the game with my wife and mother-in-law, and when I later discovered that they both had gotten hooked too, I knew that this game was special.
 
@@ -26,17 +23,17 @@ After each guess, which itself must be a valid 5-letter word, each letter will c
 * yellow: that particular letter is in the word but NOT in the correct spot
 * gray: that particular letter is NOT in the word.
 
-If you haven't played, you really ought to <a href="https://www.nytimes.com/games/wordle/" target="_blank">check it out</a>.
+If you haven't played, you really ought to [check it out](https://www.nytimes.com/games/wordle/).
 
 ## What did I build?
-I built <a href="https://www.dougissi.com/wordle-replay/" target="_blank">WordleReplay.com</a> with the following features:
+I built the [original version](https://www.dougissi.com/wordle-replay/) of WordleReplay.com with the following features:
 * Mimics all of the main Wordle game play functionality
 * Stays in sync with the real Wordle as the days go by, so the word for today on WordleReplay.com always matches the word on the official Wordle site.
 * **Allows the user to play any Wordle that has been published to date (in contrast to the official Wordle where you cannot play prior days).**
 * Provides top suggestions for the user's next guess (more details [below](#next-guess-suggestions)).
 
-## Popularity
-[2024 Update] I'm happy to report that <a href="https://wordlereplay.com/" target="_blank">WordleReplay.com</a> has been popular for the two years that it has been in existence. For the past several months, the site has seen more than 1,000 daily users from users across the globe!
+## Popularity [Update January 2024]
+The original version of WordleReplay.com had become very popular for the two years that it had been in existence. Since late 2023, the site has seen more than 1,000 daily users from users across the globe!
 
 ![WordleReplay.com popularity reports 2022 to 2023](/assets/wordlereplay/wordle_replay_popularity_2years.png)
 
@@ -79,9 +76,11 @@ Originally I though that this guess suggestion feature would be the main draw of
 5. Based on the guess' green/yellow/gray breakdown, remove any words from the valid word list that would be inconsistent with the results of the guess.
 6. Restart at step 1.
 
-To be sure, this is not the most sophisticated approach. If you're curious, I suggest you take a look at this <a href="https://youtu.be/v68zYyaEmEA?si=NFoulmXHEqLB-QB-" target="_blank">YouTube video</a> that uses a method based on information theory.
+To be sure, this is not the most sophisticated approach. If you're curious, I suggest you take a look at this [YouTube video](https://youtu.be/v68zYyaEmEA?si=NFoulmXHEqLB-QB-) that uses a method based on information theory.
 
 ## Wordle Replay tool
-Embedded below is the live version of Wordle Replay. Navigate to <a href="{{ page.embedding_path }}" target="_blank">WordleReplay.com</a> for a full-page view. It works well on mobile too.
+Embedded below is the live version of Wordle Replay. Navigate to [dougissi.com/wordle-replay](https://www.dougissi.com/wordle-replay) for a full-page view. It works well on mobile too.
 
 Enjoy!
+
+![Original Wordle Replay Embedding](embedding/original-wordle-replay)

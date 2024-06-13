@@ -1,9 +1,3 @@
----
-layout: post_with_embedding
-title: Flipping Cards 'Til You Can't
-tags: [Sequences]
-embedding_path: /assets/x_plus_y_demo/index.html
----
 ## Motivation
 I recently came across a fun clip from a 2014 movie called _X + Y_ that features a clever mathematical
 proof of the eventual result of a simple card game. I was impressed by the proof and also
@@ -216,4 +210,6 @@ def flip_til_you_cant_game(num_cards: int = 20):
 Below you'll find an interactive demo. Once you've solve this simple 8-card version,
 you can move on to choosing whatever number of cards you want.
 
-Here is a <a href="{{ page.embedding_path }}" target="_blank">link</a> to a full-page view if you'd prefer.
+Here is a [link](/assets/x_plus_y_demo/index.html) to a full-page view if you'd prefer.
+
+![X+Y Card Flipping Demo Embedding](embedding/x+y-card-flipping-demo)

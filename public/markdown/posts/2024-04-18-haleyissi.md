@@ -1,12 +1,4 @@
----
-layout: post_with_embedding
-title: "HaleyIssi.com: React App on GitHub Pages with Google Sheets Database"
-tags: [Web Development]
-embedding_path: https://www.haleyissi.com
----
-<p align="center">
-  <img src="/assets/images/haleyissi-logo.png" />
-</p>
+![HaleyIssi.com Logo](/assets/images/haleyissi-logo.png)
 
 - [Motivation](#motivation)
 - [Process](#process)
@@ -250,3 +242,5 @@ style={{display: "inline", fill: "#000000", fillOpacity: 0, stroke: "#000000", s
 
 ## HaleyIssi.com Embedding
 Embedded below is the live version of haleyissi.com. The products shown on the page come from this [this Google sheet](https://docs.google.com/spreadsheets/d/13r8RJmgC9v8P7m70wSA43sYLSyvzMfpTJRtafiJB2pw/edit?usp=sharing).
+
+![HaleyIssi.com Embedding](embedding/haleyissi.com)
