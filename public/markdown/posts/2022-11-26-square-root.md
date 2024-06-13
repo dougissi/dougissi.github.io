@@ -1,10 +1,3 @@
----
-layout: post_with_embedding
-title: Square Root Implementation
-tags: [Binary Search]
-embedding_path: /assets/square_root/Nth_Root.html
----
-
 ## Motivation
 During the final stage of a three-part technical interview for Senior Software Engineer position at a publicly traded software company in Silicon Valley, the interviewer posed a question to me that caught me completely off guard:
 
@@ -12,7 +5,7 @@ During the final stage of a three-part technical interview for Senior Software E
 
 I felt the panic rise in my chest because `x ** 0.5` is _the way_ to calculate a square root with Python out in the wild. My anxiety was only exacerbated by the fact that I had majored in mathematics at Stanford University, and yet apparently _I didn't know any clever way to calculate a square root_. 
 
-Sure, if you gave me the number `25`, I could tell you that the square root was `5`, but if the number you gave me wasn't a perfect square (that I actually knew), then I was up a creek. And even then, just because _I_ knew that `5` is the square root of `25` didn't mean that I could write a function to figure it out.
+Sure, if you gave me the number 25, I could tell you that the square root was 5, but if the number you gave me wasn't a perfect square (that I actually knew), then I was up a creek. And even then, just because _I_ knew that 5 is the square root of 25 didn't mean that I could write a function to figure it out.
 
 The interviewer gave me some hints that got me on the right track, but it took me a long time to get to a solution, and even then it was an imperfect one. My heart sank a little more when he then asked me how I could generalize my solution to solve not just the _square_ root but instead the _nth_ root, because I couldn't see an immediate path for such a generalization. 
 
@@ -97,6 +90,8 @@ def nth_root(x: float, n: int):
 ```
 
 ## Solution with Visuals
-Embedded below is the Python 3 code in a Jupyter Notebook with additional graphical elements to demonstrate what is happening in the `nth_root` function. Navigate <a href="{{ page.embedding_path }}" target="_blank">here</a> for a full-page view.
+Embedded below is the Python 3 code in a Jupyter Notebook with additional graphical elements to demonstrate what is happening in the `nth_root` function. Navigate [here](/assets/square_root/Nth_Root.html) for a full-page view.
 
 Enjoy!
+
+![Nth Root Jupyter Notebook Embedding](embedding/nth-root-notebook)

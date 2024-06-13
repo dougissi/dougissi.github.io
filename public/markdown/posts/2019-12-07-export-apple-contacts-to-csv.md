@@ -1,9 +1,3 @@
----
-layout: post
-title: Export Apple Contacts to CSV
-categories: jekyll update
-tags: [AppleScript]
----
 ![Apple Contacts to Football CSV](/assets/images/apple_contacts_football.jpg)
 
 ###  Overview

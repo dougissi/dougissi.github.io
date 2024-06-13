@@ -1,9 +1,3 @@
----
-layout: post_with_embedding
-title: Hybrid Tensor Sharing Between Serverless Functions
-tags: [Machine Learning]
-embedding_path: /assets/hybrid-tensor-sharing/hts_preprint.pdf
----
 ![Tensor Sharing AWS S3 vs Rest](/assets/images/tensor_sharing_rest_vs_s3.png)
 
 ## Motivation
@@ -31,4 +25,6 @@ If you've made it this far, you're now ready to read the real abstract of our pa
 _"Cloud-based serverless platforms offer an efficient solution for deploying Deep Neural Networks (DNNs). These platforms handle the complex infrastructure provisioning tasks, scale dynamically, and charge developers only for the actual runtime of the inference requests. Recent research suggests that partitioning a large DNN into smaller, parallelizable submodels deployed in separate serverless functions can minimize end-to-end inference latency. This partitioned design requires sharing intermediate tensors among the coordinated serverless functions. While the current state-of-the-art system achieves this by encoding the tensor information in the payload of a REST API endpoint, our study demonstrates that using a remote object storage system for tensors exceeding a specific size threshold can facilitate faster sharing. Therefore, we propose a hybrid inter-function tensor sharing strategy based on tensor size to further decrease the end-to-end latency in partitioned DNN models. Our experimental results indicate that implementing this hybrid strategy can reduce latency by up to 17.3%."_
 
 ## Research Paper
-Embedded below is our full research paper. Navigate <a href="{{ page.embedding_path }}" target="_blank">here</a> for a full-page view.
+Embedded below is our full research paper. Navigate [here](/assets/hybrid-tensor-sharing/hts_preprint.pdf) for a full-page view.
+
+![Hybrid Tensor Sharing Paper](embedding/hybrid-tensor-sharing-paper)

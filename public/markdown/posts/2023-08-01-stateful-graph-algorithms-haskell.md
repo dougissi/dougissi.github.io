@@ -1,8 +1,3 @@
----
-layout: post
-title: Stateful Graph Algorithms in Haskell
-tags: [Graph Algorithms]
----
 
 - [Motivation](#motivation)
 - [Introduction](#introduction)

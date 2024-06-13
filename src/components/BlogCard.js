@@ -19,10 +19,10 @@ export default function BlogCard({ linkTo, title, date, summary }) {
           alt="green iguana"
         />
         <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
+          <Typography variant="h5" component="div">
             {title}
           </Typography>
-          <Typography variant="h6" component="div" color="text.secondary">
+          <Typography gutterBottom variant="h6" component="div" color="text.secondary">
             {date}
           </Typography>
           <Typography variant="body" color="text.secondary">

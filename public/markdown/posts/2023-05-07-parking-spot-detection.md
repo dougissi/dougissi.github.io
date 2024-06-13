@@ -1,9 +1,3 @@
----
-layout: post
-title: Parking Spot Detection Prototype with 3 Cameras
-tags: [Internet of Things]
----
-
 ![parking spot detection prototype](/assets/images/parking_spot_detection_prototype.jpg)
 
 ## Motivation
@@ -39,4 +33,4 @@ I won't get into all of the technical details here, but I do want to share a vid
 
 And Costco, feel free to reach out to me.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/f4gAlq0qjvo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+![Parking Spot Detection Embedding](embedding/parking-spot-detection)

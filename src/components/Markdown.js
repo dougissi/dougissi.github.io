@@ -2,19 +2,41 @@ import { Link } from '@mui/material';
 import { Link as RouterLink } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
+import rehypeKatex from 'rehype-katex';
+import remarkMath from 'remark-math';
+import 'katex/dist/katex.min.css'; // `rehype-katex` does not import the CSS for you
 import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter';
-// import {dark} from 'react-syntax-highlighter/dist/esm/styles/prism';
+import { materialDark as style } from 'react-syntax-highlighter/dist/esm/styles/prism';
+// import { github as style } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
 const MARKDOWN_FOLDER = '/markdown';
 
-const XYFilmYoutubeIFrame = () => {
+const YouTubeIFrame = ({ src }) => {
     return (
         <iframe
             className="markdown-img"
             width="560"
             height="315"
-            src="https://www.youtube.com/embed/04x4ZdLpN-0?si=K17zvUcbZ_YoqZPG&amp;start=83"
+            src={src}
             title="YouTube video player"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullScreen
+        />
+    );
+}
+
+const BottomIFrame = ({ src, title }) => {
+    return (
+        <iframe
+            className="markdown-img"
+            // width="100%"
+            // height='1000px'
+            style={{ width: '100%', height: '100vh', border: '1px black solid', overflow: 'hidden' }}
+            src={src}
+            title={title}
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             referrerPolicy="strict-origin-when-cross-origin"
@@ -50,12 +72,16 @@ function Markdown({ fileName }) {
     return (
         <div className="Markdown">
             <ReactMarkdown
+                remarkPlugins={[remarkGfm, remarkMath]}
+                rehypePlugins={[rehypeKatex]}
                 components={{
                     a(props) {
                         const {node, href, children, ...rest} = props;
                         if (href.startsWith('http')) {  // open external pages in new tab
                             rest.target = "_blank";
                             rest.rel = "noopener noreferrer";
+                        } else if (href.startsWith('/assets')) {
+                            return <Link href={href} {...rest}>{children}</Link>;  // regular MUI Link for assets
                         }
                         return (
                             <Link
@@ -71,13 +97,35 @@ function Markdown({ fileName }) {
                         const {node, children, alt, src, ...rest} = props;
 
                         // hack to include embeddings via Markdown image syntax
-                        // format: `![alt text](embedding/<embeddingId>)`
+                        // format: `![alt title](embedding/<embeddingId>)`
                         if (src.startsWith('embedding')) {
                             const embeddingId = src.split('/')[1];
                             if (embeddingId === 'x+y-youtube-iframe') {
-                                return <XYFilmYoutubeIFrame />;
+                                return <YouTubeIFrame src="https://www.youtube.com/embed/04x4ZdLpN-0?start=83" />;
                             } else if (embeddingId === 'tax-brackets-instagram-npr-post') {
                                 return <TaxBracketInstagramNPRPost />;
+                            } else if (embeddingId === 'haleyissi.com') {
+                                return <BottomIFrame src="https://haleyissi.com" title={alt} />;
+                            } else if (embeddingId === 'hybrid-tensor-sharing-paper') {
+                                return <BottomIFrame src="/assets/hybrid-tensor-sharing/hts_preprint.pdf" title={alt} />;
+                            } else if (embeddingId === 'parking-spot-detection') {
+                                return <YouTubeIFrame src="https://www.youtube.com/embed/f4gAlq0qjvo" />;
+                            } else if (embeddingId === 'picar-roomba') {
+                                return <YouTubeIFrame src="https://www.youtube.com/embed/_FRNL_yRdVg" />;
+                            } else if (embeddingId === 'picar-full-self-driving') {
+                                return <YouTubeIFrame src="https://www.youtube.com/embed/4dY-V5tbMBI" />;
+                            } else if (embeddingId === 'nth-root-notebook') {
+                                return <BottomIFrame src="/assets/square_root/Nth_Root.html" title={alt} />;
+                            } else if (embeddingId === 'tax-bracket-notebook') {
+                                return <BottomIFrame src="/assets/tax_brackets/Tax_Owed_Across_Tax_Brackets.html" title={alt} />;
+                            } else if (embeddingId === 'original-wordle-replay') {
+                                return <BottomIFrame src="https://dougissi.com/wordle-replay" title={alt} />;
+                            } else if (embeddingId === 'x+y-card-flipping-demo') {
+                                return <BottomIFrame src="/assets/x_plus_y_demo/index.html" title={alt} />;
+                            } else if (embeddingId === 'counting-polygons-notebook') {
+                                return <BottomIFrame src="https://www.dougissi.com/counting-polygons/jupyter-notebook.html" title={alt} />;
+                            } else if (embeddingId === 'counting-triangles-notebook') {
+                                return <BottomIFrame src="https://www.dougissi.com/counting-triangles/jupyter-notebook.html" title={alt} />;
                             }
                         }
 
@@ -85,21 +133,21 @@ function Markdown({ fileName }) {
                         return <img className="markdown-img" alt={alt} src={src} {...rest}>{children}</img>;
                     },
                     code(props) {
-                        const {children, className, node, ...rest} = props
-                        const match = /language-(\w+)/.exec(className || '')
+                        const {children, className, node, ...rest} = props;
+                        const match = /language-(\w+)/.exec(className || '');
                         return match ? (
                             <SyntaxHighlighter
                                 {...rest}
                                 PreTag="div"
                                 children={String(children).replace(/\n$/, '')}
                                 language={match[1]}
-                                // style={dark}
+                                style={style}
                             />
                         ) : (
-                            <code {...rest} className={className}>
+                            <code {...rest} className="code-inline">
                                 {children}
                             </code>
-                        )
+                        );
                     }
                 }}
             >
