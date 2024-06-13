@@ -3,6 +3,7 @@
   * [ ] info about how to add new posts
   * [ ] before changing any post filenames, check for internal links that would change in markdown files
   * [ ] markdown posts only expect headings down to h7 (otherwise don't get ids attached in MarkdownComponent)
+  * [ ] markdown headers shouldn't include complicated LaTeX
 * [x] add iframes at bottom of posts (where applicable)
 * [x] check if hybrid tensor sharing link to pdf works
 * [ ] fix method tax bracket embedded post because doesn't work right
