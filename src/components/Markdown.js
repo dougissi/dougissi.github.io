@@ -1,5 +1,4 @@
 import { Link } from '@mui/material';
-import { Link as RouterLink } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
@@ -7,8 +6,9 @@ import rehypeKatex from 'rehype-katex';
 import remarkMath from 'remark-math';
 import 'katex/dist/katex.min.css'; // `rehype-katex` does not import the CSS for you
 import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter';
-import { materialDark as style } from 'react-syntax-highlighter/dist/esm/styles/prism';
-// import { github as style } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import { materialDark as style } from 'react-syntax-highlighter/dist/esm/styles/prism';  // also consider hljs instead of prism
+import { convertToId } from '../utils';
+
 
 const MARKDOWN_FOLDER = '/markdown';
 
@@ -77,21 +77,11 @@ function Markdown({ fileName }) {
                 components={{
                     a(props) {
                         const {node, href, children, ...rest} = props;
-                        if (href.startsWith('http')) {  // open external pages in new tab
+                        if (href.startsWith('http') || href.startsWith('/assets')) {  // open external pages in new tab
                             rest.target = "_blank";
                             rest.rel = "noopener noreferrer";
-                        } else if (href.startsWith('/assets')) {
-                            return <Link href={href} {...rest}>{children}</Link>;  // regular MUI Link for assets
                         }
-                        return (
-                            <Link
-                                component={RouterLink}  // use react-router-dom link for faster internal routing
-                                to={href}
-                                {...rest}
-                            >
-                                {children}
-                            </Link>
-                        );
+                        return <Link href={href} {...rest}>{children}</Link>;
                     },
                     img(props) {
                         const {node, children, alt, src, ...rest} = props;
@@ -148,7 +138,35 @@ function Markdown({ fileName }) {
                                 {children}
                             </code>
                         );
-                    }
+                    },
+                    h1(props) {
+                        const {children, node, ...rest} = props;
+                        return <h1 id={convertToId(children)} {...rest}>{children}</h1>
+                    },
+                    h2(props) {
+                        const {children, node, ...rest} = props;
+                        return <h2 id={convertToId(children)} {...rest}>{children}</h2>
+                    },
+                    h3(props) {
+                        const {children, node, ...rest} = props;
+                        return <h3 id={convertToId(children)} {...rest}>{children}</h3>
+                    },
+                    h4(props) {
+                        const {children, node, ...rest} = props;
+                        return <h4 id={convertToId(children)} {...rest}>{children}</h4>
+                    },
+                    h5(props) {
+                        const {children, node, ...rest} = props;
+                        return <h5 id={convertToId(children)} {...rest}>{children}</h5>
+                    },
+                    h6(props) {
+                        const {children, node, ...rest} = props;
+                        return <h6 id={convertToId(children)} {...rest}>{children}</h6>
+                    },
+                    h7(props) {
+                        const {children, node, ...rest} = props;
+                        return <h7 id={convertToId(children)} {...rest}>{children}</h7>
+                    },
                 }}
             >
                 {markdownContent}
