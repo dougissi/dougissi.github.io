@@ -7,14 +7,19 @@
 * [x] add iframes at bottom of posts (where applicable)
 * [x] check if hybrid tensor sharing link to pdf works
 * [x] fix method tax bracket embedded post because doesn't work right
-* [ ] photo
-  * [ ] haskell post
-  * [ ] picar post
-  * [ ] square root post
-  * [ ] flipping cards post
+* [x] photo
+  * [x] haskell post
+  * [x] picar post
+  * [x] square root post
+  * [x] tax brackets post
+  * [x] flipping cards post
+* [ ] tax brackets: maybe match photo on Blog Card with what's in Blog Post
+* [ ] haleyissi: maybe match photo on Blog Card with what's in Blog Post
 * [ ] method for share links to have specific images for specific posts (see tax-bracket one, for example)
 * [ ] check all links (especially that start with http and /assets)
 * [ ] consider different code block styling in Markdown
 * [x] maybe using react-router-dom link isn't great for internal links? -- doesn't scroll up to top of page
 * [ ] add category filtering by coding language
 * [ ] get better "simple node graph" image in dougissi.com/counting-polygons repo
+* [ ] perhaps a bit more spacing and/or color differentiation between Blog Cards
+* [ ] add summaries for each post?

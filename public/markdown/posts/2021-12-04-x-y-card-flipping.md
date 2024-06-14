@@ -1,3 +1,5 @@
+![Flipping Cards Icon](/assets/x_plus_y_demo/assets/flipping_cards_icon.png)
+
 ## Motivation
 I recently came across a fun clip from a 2014 movie called _X + Y_ that features a clever mathematical
 proof of the eventual result of a simple card game. I was impressed by the proof and also

@@ -13,10 +13,7 @@ export default function Blog({ posts }) {
         return (
           <BlogCard
             key={`blog-card-${post.path}`}
-            linkTo={post.path}
-            title={post.title}
-            date={post.date}
-            summary="Placeholder summary information about this blog post. Isn't it great!"
+            post={post}
           />
         );
       })}

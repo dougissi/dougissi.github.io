@@ -1,3 +1,5 @@
+![Square Root Logo](/assets/square_root/sqr_root_logo.png)
+
 ## Motivation
 During the final stage of a three-part technical interview for Senior Software Engineer position at a publicly traded software company in Silicon Valley, the interviewer posed a question to me that caught me completely off guard:
 

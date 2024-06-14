@@ -15,7 +15,7 @@ const MARKDOWN_FOLDER = '/markdown';
 const YouTubeIFrame = ({ src }) => {
     return (
         <iframe
-            className="markdown-img"
+            className="markdown-iframe"
             width="560"
             height="315"
             src={src}
@@ -31,7 +31,7 @@ const YouTubeIFrame = ({ src }) => {
 const BottomIFrame = ({ src, title }) => {
     return (
         <iframe
-            className="markdown-img"
+            className="markdown-iframe"
             style={{ width: '100%', height: '100vh', border: '1px black solid', overflow: 'hidden' }}
             src={src}
             title={title}
@@ -87,7 +87,7 @@ function Markdown({ fileName }) {
                                 return (
                                     <iframe
                                         id="NPR-IG-tax-bracket-post-embedding"
-                                        className="markdown-img"
+                                        className="markdown-iframe"
                                         style={{ width: "400px", height: "600px" }}
                                         src="https://www.instagram.com/reel/ChAgBYlJX13/embed/captioned"
                                         title="NPR Tax Bracket Post Embedding"
