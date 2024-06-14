@@ -1,3 +1,5 @@
+![Self-Driving PiCar](/assets/images/picar.png)
+
 ## Motivation
 
 As part of my Master of Computer Science program at the University of Illinois at Urbana-Champaign, during my first semester I took a course called "Internet of Things." For the first lab, we used a [Raspberry Pi](https://www.raspberrypi.com/) (a small computer) and a [car kit](https://docs.sunfounder.com/projects/picar-4wd/en/latest/) which together resulted in a programmable car!

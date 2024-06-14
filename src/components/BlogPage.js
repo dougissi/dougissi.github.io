@@ -10,7 +10,7 @@ export default function BlogPage({ post }) {
       <Typography gutterBottom variant="h5" component="div" color="text.secondary">
         {post.date}
       </Typography>
-      <Markdown fileName={`posts/${post.fileName}`} />
+      <Markdown fileName={`posts/${post.mdFileName}`} />
     </div>
   );
 }

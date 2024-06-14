@@ -5,30 +5,37 @@ import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 import { Link } from 'react-router-dom';
 
-export default function BlogCard({ linkTo, title, date, summary }) {
+export default function BlogCard({ post }) {
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ width: '90%' }}>
       <CardActionArea
         component={Link}
-        to={linkTo}
+        to={post.path}
       >
-        <CardMedia
-          component="img"
-          height="140"
-          image="/images/contemplative-reptile.jpg"
-          alt="green iguana"
-        />
         <CardContent>
           <Typography variant="h5" component="div">
-            {title}
+            {post.title}
           </Typography>
           <Typography gutterBottom variant="h6" component="div" color="text.secondary">
-            {date}
+            {post.date}
           </Typography>
           <Typography variant="body" color="text.secondary">
-            {summary}
+            {post.summary || "Placeholder summary information about this blog post. Isn't it great!"}
           </Typography>
         </CardContent>
+        <CardMedia
+          component="img"
+          sx={{  // TODO: commonize with .markdown-img CSS class
+            width: 'auto',
+            height: 'auto',
+            maxWidth: .9,
+            maxHeight: '50vh',
+            margin: 'auto',
+            paddingBottom: '10px'
+          }}
+          image={post.imgFileName || "/images/contemplative-reptile.jpg"}
+          alt={post.imgFileName || "/images/contemplative-reptile.jpg"}  // TODO: make better
+        />
       </CardActionArea>
     </Card>
   );

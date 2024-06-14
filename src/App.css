@@ -12,11 +12,21 @@
   padding: 0px 20px;
 }
 
-.markdown-img {
+.markdown-iframe {
   display: block;
   margin-left: auto;
   margin-right: auto;
   max-width: 90%;
+}
+
+.markdown-img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 90%;
+  max-height: 50vh;
+  margin: auto;
+  padding-bottom: 10px;
 }
 
 table {
