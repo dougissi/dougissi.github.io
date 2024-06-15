@@ -1,3 +1,4 @@
+![Haskell Graph Logo](/assets/graph_algos_haskell/haskell_graph_logo.png)
 
 - [Motivation](#motivation)
 - [Introduction](#introduction)
