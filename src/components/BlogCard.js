@@ -33,8 +33,8 @@ export default function BlogCard({ post }) {
             margin: 'auto',
             paddingBottom: '10px'
           }}
-          image={post.imgFileName || "/images/contemplative-reptile.jpg"}
-          alt={post.imgFileName || "/images/contemplative-reptile.jpg"}  // TODO: make better
+          image={post.imgFileName || "/assets/images/contemplative-reptile.jpg"}
+          alt={post.imgFileName || "/assets/images/contemplative-reptile.jpg"}  // TODO: make better
         />
       </CardActionArea>
     </Card>
