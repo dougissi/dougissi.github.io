@@ -6,7 +6,7 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import { Stack } from '@mui/material';
+import { Stack, Tooltip } from '@mui/material';
 import { Link } from '@mui/material';
 
 
@@ -14,15 +14,19 @@ const siteTitle = 'DOUGISSI';
 
 export default function NavBar() {
 
-  const NavIconButton = ({ href, icon }) => {
+  const NavIconButton = ({ title, href, icon }) => {
     return (
-      <IconButton
-        component={Link}
-        href={href}
-        sx={{ color: 'inherit' }}
-      >
-        {icon}
-      </IconButton>
+      <Tooltip title={title}>
+        <IconButton
+          component={Link}
+          href={href}
+          target='_blank'
+          rel='noopener noreferrer'
+          sx={{ color: 'inherit' }}
+        >
+          {icon}
+        </IconButton>
+      </Tooltip>
     );
   };
 
@@ -56,8 +60,16 @@ export default function NavBar() {
               display: 'flex'
             }}
           >
-            <NavIconButton href="https://github.com/dougissi" icon={<GitHubIcon />} />
-            <NavIconButton href="https://www.linkedin.com/in/dougissi/" icon={<LinkedInIcon />} />
+            <NavIconButton
+              title="GitHub"
+              href="https://github.com/dougissi"
+              icon={<GitHubIcon/>}
+            />
+            <NavIconButton
+              title="LinkedIn"
+              href="https://www.linkedin.com/in/dougissi/"
+              icon={<LinkedInIcon />}
+            />
           </Stack>
 
         </Toolbar>

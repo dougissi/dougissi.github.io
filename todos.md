@@ -24,3 +24,5 @@
 * [x] perhaps a bit more spacing and/or color differentiation between Blog Cards
 * [ ] add summaries for each post?
 * [x] update NavBar
+* [ ] add website metadata
+* [x] open GitHub and LinkedIn in separate tab
