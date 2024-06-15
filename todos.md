@@ -23,3 +23,4 @@
 * [ ] get better "simple node graph" image in dougissi.com/counting-polygons repo
 * [x] perhaps a bit more spacing and/or color differentiation between Blog Cards
 * [ ] add summaries for each post?
+* [x] update NavBar
