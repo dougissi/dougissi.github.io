@@ -5,7 +5,7 @@ I have been filing my taxes by hand (read: not with Turbo Tax) since 2018. What 
 
 Anyway, a concept that has been foggy in my mind over the past few years has to do with **tax brackets**. I've heard well-off people mention things like, "When you're in our tax bracket, more than a third of your income goes to taxes." Wow. My natural inclination has been to think, "Well, maybe it's not so bad that I'm not in a higher tax bracket then."
 
-And when my wife came across the [NPR Instagram post embedded above](#instagram-embed-0), I knew I had to finally get to the bottom of it. Thankfully, I can likewise conclude that **it is NOT bad to move to a higher tax bracket**!
+And when my wife came across the [NPR Instagram post embedded above](#NPR-IG-tax-bracket-post-embedding), I knew I had to finally get to the bottom of it. Thankfully, I can likewise conclude that **it is NOT bad to move to a higher tax bracket**!
 
 In the end, a sentiment that I learned from my mom has continued to ring true: never try to make _less_ money just to avoid paying _more_ taxes.
 
