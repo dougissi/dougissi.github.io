@@ -5,7 +5,7 @@ import BlogCard from './BlogCard';
 export default function Blog({ posts }) {
   return (
     <Stack 
-      spacing={2}
+      spacing={4}
       justifyContent="center"
       alignItems="center"
     >

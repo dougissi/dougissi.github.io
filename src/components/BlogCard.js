@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 
 export default function BlogCard({ post }) {
   return (
-    <Card sx={{ width: '90%' }}>
+    <Card sx={{ width: '90%' }} elevation={10}>
       <CardActionArea
         component={Link}
         to={post.path}
