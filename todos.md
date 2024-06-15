@@ -21,5 +21,5 @@
 * [x] maybe using react-router-dom link isn't great for internal links? -- doesn't scroll up to top of page
 * [ ] add category filtering by coding language
 * [ ] get better "simple node graph" image in dougissi.com/counting-polygons repo
-* [ ] perhaps a bit more spacing and/or color differentiation between Blog Cards
+* [x] perhaps a bit more spacing and/or color differentiation between Blog Cards
 * [ ] add summaries for each post?
