@@ -11,7 +11,8 @@ let posts = [
     summary: '',
     mdFileName: '2024-06-10-wordlereplay-react.md',
     imgFileName: '/assets/wordlereplay/wordlereplay_react_mui.png',
-    categories: ['Web Development']
+    categories: ['Web Development'],
+    languages: ['React', 'JavaScript']
   },
   {
     id: 12,
@@ -20,7 +21,8 @@ let posts = [
     mdFileName: '2024-04-18-haleyissi.md',
     // imgFileName: '/assets/images/haleyissi-logo.png',
     imgFileName: 'https://haleyissi.com/static/media/haleyissi-coffee-portrait-440kb.cd3af01ed82140f2b5df.jpg',
-    categories: ['Web Development']
+    categories: ['Web Development'],
+    languages: ['React', 'JavaScript']
   },
   {
     id: 11,
@@ -28,7 +30,8 @@ let posts = [
     summary: '',
     mdFileName: '2023-12-13-hybrid-tensor-sharing.md',
     imgFileName: '/assets/images/tensor_sharing_rest_vs_s3.png',
-    categories: ['Machine Learning']
+    categories: ['Machine Learning'],
+    languages: ['Python']
   },
   {
     id: 10,
@@ -36,14 +39,16 @@ let posts = [
     summary: '',
     mdFileName: '2023-08-01-stateful-graph-algorithms-haskell.md',
     imgFileName: '/assets/graph_algos_haskell/haskell_graph_logo.png',
-    categories: ['Graph Algorithms']
+    categories: ['Graphs', 'Algorithms'],
+    languages: ['Haskell']
   },
   {
     id: 9,
     title: 'Parking Spot Detection Prototype with 3 Cameras',
     mdFileName: '2023-05-07-parking-spot-detection.md',
     imgFileName: '/assets/images/parking_spot_detection_prototype.jpg',
-    categories: ['Computer Vision', 'Internet of Things']
+    categories: ['Computer Vision', 'Internet of Things'],
+    languages: ['Python']
   },
   {
     id: 8,
@@ -51,7 +56,8 @@ let posts = [
     summary: '',
     mdFileName: '2023-02-05-picar-full-self-driving.md',
     imgFileName: '/assets/images/picar.png',
-    categories: ['Internet of Things']
+    categories: ['Internet of Things'],
+    languages: ['Python']
   },
   {
     id: 7,
@@ -59,7 +65,8 @@ let posts = [
     summary: '',
     mdFileName: '2022-11-26-square-root.md',
     imgFileName: '/assets/square_root/sqr_root_logo.png',
-    categories: ['Math', 'Algorithms']
+    categories: ['Math', 'Algorithms'],
+    languages: ['Python']
   },
   {
     id: 6,
@@ -67,14 +74,17 @@ let posts = [
     summary: '',
     mdFileName: '2022-11-13-tax-brackets.md',
     imgFileName: '/assets/tax_brackets/next-tax-bracket_2400x1258.jpg',
-    categories: ['Finance', 'Visualization']
+    categories: ['Finance', 'Visualization'],
+    languages: ['Python']
   },
   {
     id: 5,
     title: 'Wordle Replay',
     mdFileName: '2022-01-31-wordle-replay.md',
     imgFileName: '/assets/wordlereplay/wordle_replay_share_icon_1200x600.png',
-    categories: ['Web Development']
+    categories: ['Web Development'],
+    languages: ['JQuery', 'JavaScript']
+
   },
   {
     id: 4,
@@ -82,7 +92,8 @@ let posts = [
     summary: '',
     mdFileName: '2021-12-04-x-y-card-flipping.md',
     imgFileName: '/assets/x_plus_y_demo/assets/flipping_cards_icon.png',
-    categories: ['Web Development', 'Algorithms', 'Math']
+    categories: ['Web Development', 'Algorithms', 'Math'],
+    languages: ['JavaScript', 'JQuery']
   },
   {
     id: 3,
@@ -90,7 +101,8 @@ let posts = [
     summary: '',
     mdFileName: '2020-02-10-counting-polygons-in-node-graphs.md',
     imgFileName: 'https://www.dougissi.com/counting-polygons/assets/counting_polygons_icon.jpg',
-    categories: ['Graphs', 'Algorithms']
+    categories: ['Graphs', 'Algorithms'],
+    languages: ['Python']
   },
   {
     id: 2,
@@ -98,7 +110,8 @@ let posts = [
     summary: '',
     mdFileName: '2020-02-06-counting-triangles-in-node-graphs.md',
     imgFileName: 'https://www.dougissi.com/counting-triangles/assets/counting_triangles_icon.jpg',
-    categories: ['Graphs', 'Algorithms']
+    categories: ['Graphs', 'Algorithms'],
+    languages: ['Python']
   },
   {
     id: 1,
@@ -106,7 +119,8 @@ let posts = [
     summary: '',
     mdFileName: '2019-12-07-export-apple-contacts-to-csv.md',
     imgFileName: '/assets/images/apple_contacts_football.jpg',
-    categories: ['Tools']
+    categories: ['Tools'],
+    languages: ['AppleScript']
   }
 ];
 
@@ -117,12 +131,31 @@ posts = posts.map((post) => {
   return {...post, date: date, path: path};
 });
 
+// get unique categories and languages
+const categories = {};
+const languages = {};
+posts.forEach(post => {
+  const addToObj = (obj, key) => {
+    if (!obj.hasOwnProperty(key)) {
+      obj[key] = [];
+    }
+    obj[key].push(post);
+  };
+  post.categories.forEach(cat => addToObj(categories, cat));
+  post.languages.forEach(lang => addToObj(languages, lang));
+});
+
+// combine categories and languages into single options list
+const options = [];
+Object.keys(categories).sort().forEach(cat => options.push({type: 'Category', value: cat}));
+Object.keys(languages).sort().forEach(lang => options.push({type: 'Language', value: lang}));
+
 function App() {
   return (
     <div className="App">
       <NavBar />
       <Routes>
-        <Route path='/' element={<HomePage posts={posts} />} />
+        <Route path='/' element={<HomePage posts={posts} options={options} categories={categories} languages={languages} />} />
         {posts.map(post => (
           <Route
             key={`route-${post.path}`}
