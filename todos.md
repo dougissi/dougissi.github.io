@@ -15,7 +15,6 @@
   * [x] flipping cards post
 * [x] tax brackets: maybe match photo on Blog Card with what's in Blog Post
 * [x] haleyissi: maybe match photo on Blog Card with what's in Blog Post
-* [ ] check all links (especially that start with http and /assets)
 * [x] maybe using react-router-dom link isn't great for internal links? -- doesn't scroll up to top of page
 * [x] add category filtering by coding language
 * [x] get better "simple node graph" image in dougissi.com/counting-polygons repo
@@ -29,6 +28,8 @@
 * [x] format date of each post with dayjs
 * [x] add categories/languages to Blog Card somewhere
 * [x] don't let body get much wider than 1000px
+* [ ] check all links (especially that start with http and /assets)
+* [ ] switch over dougissi.com and dougissi.github.io
 
 Later:
 * [ ] method for share links to have specific images for specific posts (see tax-bracket one, for example)
