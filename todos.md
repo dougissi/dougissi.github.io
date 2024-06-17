@@ -25,7 +25,7 @@
 * [x] update NavBar
 * [x] add website metadata
 * [x] open GitHub and LinkedIn in separate tab
-* [ ] Called Higher Book icon?
+* [x] Called Higher Book icon?
 * [x] format date of each post with dayjs
 * [x] add categories/languages to Blog Card somewhere
 * [x] don't let body get much wider than 1000px

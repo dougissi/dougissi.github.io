@@ -8,6 +8,7 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import { Stack, Tooltip } from '@mui/material';
 import { Link } from '@mui/material';
+import CalledHigherLogoIcon from './CalledHigherLogoIcon';
 
 
 const siteTitle = 'DOUGISSI';
@@ -69,6 +70,11 @@ export default function NavBar() {
               title="LinkedIn"
               href="https://www.linkedin.com/in/dougissi/"
               icon={<LinkedInIcon />}
+            />
+            <NavIconButton
+              title="CalledHigherBook.com"
+              href="https://www.calledhigherbook.com"
+              icon={<CalledHigherLogoIcon />}
             />
           </Stack>
 
