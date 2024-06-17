@@ -1,9 +1,9 @@
-* [ ] README
-  * [ ] info about iframe hack in Markdown component
-  * [ ] info about how to add new posts
-  * [ ] before changing any post filenames, check for internal links that would change in markdown files
-  * [ ] markdown posts only expect headings down to h7 (otherwise don't get ids attached in MarkdownComponent)
-  * [ ] markdown headers shouldn't include complicated LaTeX
+* [x] README
+  * [x] info about iframe hack in Markdown component
+  * [x] info about how to add new posts
+  * [x] before changing any post filenames, check for internal links that would change in markdown files
+  * [x] markdown posts only expect headings down to h7 (otherwise don't get ids attached in MarkdownComponent)
+  * [x] markdown headers shouldn't include complicated LaTeX
 * [x] add iframes at bottom of posts (where applicable)
 * [x] check if hybrid tensor sharing link to pdf works
 * [x] fix method tax bracket embedded post because doesn't work right

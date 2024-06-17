@@ -24,15 +24,29 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 
 Most of the Javascript utility functions have unit tests using Jest, located in the `src/tests` folder.
 
-## Add a News Post
+## Add a New Post
 
-To add a news post, create a new Markdown .md file in the `src/news` folder that contains all of the content of the post (yes, using Markdown). Each time a new post is deployed, the UI will also add badge icons to the navigation bar to nudge the users to see the latest news.
+To add a news post, create a new Markdown .md file in the `public/markdown/posts` folder that contains all of the content of the post (yes, using Markdown).
+
+The filename requires a particular format:
+* format: `<YYYY-MM-DD>-<url-pathname>.md`
+* example: `2024-04-18-haleyissi.md`
+  * the date and the url pathname will be inferred from the file
+  * url: "dougissi.com/haleyissi"
+  * date: "April 18, 2024"
+
+To _embed_ anything in the posts, a hack was used to convert traditional image syntax to handle embeddings
+* example syntax: `![IFrame Embedding](embedding/embeddingId)`
+* Using the `embeddingId`, add it to the `if/else` cascade in Markdown (and reference other examples)
+
+Afterward, add metadata about the post to the `posts` array in `src/App.js`, following the pattern shown for adding an image, title, category tags, and language tags, etc.
 
 Notes:
+* Do not change a post filename without first looking for the original pathname in the links of other posts!
 * Do not include the title in the Markdown file, as that will be based on the `newsPost` array (see below)
-* Do not include any h1 or h2 headers in the Markdown file (e.g., `# My Page Title` or `## My Post Title`).
-
-Afterward, add metadata about the post to the `newsPosts` array in `src/constants.js`. The title and date in this array are what will appear in the News page.
+* Do not include any h1 in the Markdown file (e.g., `# My Page Title`).
+* Posts only expect headings down to h7
+* Headings (and their respective anchor links) can handle simple `code` and $\LaTeX{}$ formatting, but avoid anything too complicated.
 
 ## Deployment
 
