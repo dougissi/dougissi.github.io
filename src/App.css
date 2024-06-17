@@ -10,6 +10,8 @@
 .Markdown {
   text-align: left;
   padding: 0 5%;
+  max-width: 1000px;
+  margin: auto;
 }
 
 .markdown-iframe {
