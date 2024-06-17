@@ -1,4 +1,4 @@
-![HaleyIssi.com Logo](/assets/images/haleyissi-logo.png)
+![HaleyIssi.com Hero Image](https://haleyissi.com/static/media/haleyissi-coffee-portrait-440kb.cd3af01ed82140f2b5df.jpg)
 
 - [Motivation](#motivation)
 - [Process](#process)
@@ -224,7 +224,9 @@ We decided to err on the side of simplicity by having haleyissi.com pull informa
 
 #### SVG Logo
 
-The image at the top of this post is the logo we designed for haleyissi.com. While JPG or PNG files would be better for photorealistic images, SVG files are smaller and more scalable for simple vector graphics (SVG stands for Scalable Vector Graphics).
+![HaleyIssi.com Logo](/assets/images/haleyissi-logo.png)
+
+The image above is the logo we designed for haleyissi.com. While JPG or PNG files would be better for photorealistic images, SVG files are smaller and more scalable for simple vector graphics (SVG stands for Scalable Vector Graphics).
 
 If you're looking for a free, open-source alternative to Adobe Illustrator, I used [Inkscape](https://inkscape.org/). Once we created the logo, we saved it as an SVG file.
 
