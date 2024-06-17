@@ -1,13 +1,15 @@
-![Instagram NPR Tax Brackets Post](embedding/tax-brackets-instagram-npr-post)
+![Tax Bracket Mouse Higher Tax Bracket](/assets/tax_brackets/next-tax-bracket_2400x1258.jpg)
 
 ## Motivation
 I have been filing my taxes by hand (read: not with Turbo Tax) since 2018. What can I say? I like to live life on the edge. But don't be too impressed: my mom Merry has been a professional tax preparer for essentially as long as I've been alive, so I have a really great helper for the confusing stuff. She's gotten so good that she's become an expert in working with US citizens who live outside of the country, which can get very spicy from a tax perspective. (SPOILER: there are many situations in which you will need to pay taxes to the US _and_ your country of residence.) If you are in need of any assistance, feel free to check out her website, [merrynumbers.com](https://merrynumbers.com/).
 
 Anyway, a concept that has been foggy in my mind over the past few years has to do with **tax brackets**. I've heard well-off people mention things like, "When you're in our tax bracket, more than a third of your income goes to taxes." Wow. My natural inclination has been to think, "Well, maybe it's not so bad that I'm not in a higher tax bracket then."
 
-And when my wife came across the [NPR Instagram post embedded above](#NPR-IG-tax-bracket-post-embedding), I knew I had to finally get to the bottom of it. Thankfully, I can likewise conclude that **it is NOT bad to move to a higher tax bracket**!
+And when my wife came across the NPR Instagram post embedded below ([direct link](https://www.instagram.com/reel/ChAgBYlJX13/)), I knew I had to finally get to the bottom of it. Thankfully, I can likewise conclude that **it is NOT bad to move to a higher tax bracket**!
 
 In the end, a sentiment that I learned from my mom has continued to ring true: never try to make _less_ money just to avoid paying _more_ taxes.
+
+![Instagram NPR Tax Brackets Post](embedding/tax-brackets-instagram-npr-post)
 
 ## Caveats
 For this investigation, we're going to limit ourselves to just federal tax obligations and ignore a person's state tax obligations. The federal tax obligations are typically the bulk anyway. 
