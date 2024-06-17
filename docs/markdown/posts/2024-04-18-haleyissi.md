@@ -219,7 +219,7 @@ We decided to err on the side of simplicity by having haleyissi.com pull informa
 1. Add data to [our Google sheet](https://docs.google.com/spreadsheets/d/13r8RJmgC9v8P7m70wSA43sYLSyvzMfpTJRtafiJB2pw/edit?usp=sharing)
 2. File -> Share -> Publish to web
 3. In the pop-up window, and then change the drop down "Entire Document" to the specific sheet, and also change the drop down "Web Page" to "Comma-separated values (.csv)". Then copy the link.
-4. Back in the React app, see the [`ProductsFetcher` component](https://github.com/dougissi/haleyissi/blob/main/src/components/ProductsFetcher.js) wrote to actually fetch this information from the link described above. I used the [papaparse](https://www.npmjs.com/package/papaparse) library to actually do the CSV parsing.
+4. Back in the React app, see the [`ProductsFetcher` component](https://github.com/dougissi/haleyissi/blob/main/src/components/ProductsFetcher.js) which actually fetches this information from the Google sheet. I used the [papaparse](https://www.npmjs.com/package/papaparse) library to do the CSV parsing.
 5. Use the product data to construct our [`LinkCard` component](https://github.com/dougissi/haleyissi/blob/main/src/components/LinkCard.js) for each product, which is based off of this [Material UI Primary Action Card](https://mui.com/material-ui/react-card/#primary-action).
 
 #### SVG Logo

@@ -312,7 +312,7 @@ Logic:
 
 ## Referenced Paper
 
-[Structuring Depth First Search Algorithms in Haskell](https://citeseerx.ist.psu.edu/doc/10.1.1.52.6526)<br>
+[Structuring Depth First Search Algorithms in Haskell](https://dl.acm.org/doi/10.1145/199448.199530)\
 David King and John Launchbury. Proc. ACM Principles of Programming Languages, San 
 Francisco, 1995.
 
