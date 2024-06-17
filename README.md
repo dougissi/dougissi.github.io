@@ -3,7 +3,9 @@
 ## About
 [DougIssi.com](https://dougissi.com) is a personal software blog for Doug Issichopoulos. 
 
-In terms of implementation, it is a web application written using the [React](https://react.dev/) framework and uses [Material UI](https://mui.com/) components. This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+In terms of implementation, it is a web application written using the [React](https://react.dev/) framework, uses [Material UI](https://mui.com/) components, and is hosted using [GitHub Pages](https://pages.github.com/). This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+The original version of this site was implemented using [Jekyll with GitHub Pages](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/about-github-pages-and-jekyll); see the original repository [here](https://github.com/dougissi/dougissi-jekyll).
 
 ## Local Development
 
