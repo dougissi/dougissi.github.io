@@ -82,9 +82,9 @@ let posts = [
   },
   {
     id: 5,
-    title: 'Wordle Replay',
+    title: 'Wordle Replay (Original Version)',
     summary: "By early 2022, Wordle had taken the world by storm, so as my first genuine attempt at web development, I built WordleReplay.com to both help solve puzzles and allow users to replay old ones.",
-    mdFileName: '2022-01-31-wordle-replay.md',
+    mdFileName: '2022-01-31-wordlereplay-original.md',
     imgFileName: '/assets/wordlereplay/wordle_replay_share_icon_cropped.png',
     categories: ['Web Development'],
     languages: ['JQuery', 'JavaScript']
