@@ -28,7 +28,7 @@
 * [ ] Called Higher Book icon?
 * [x] format date of each post with dayjs
 * [x] add categories/languages to Blog Card somewhere
-* [ ] don't let body get much wider than 1000px
+* [x] don't let body get much wider than 1000px
 
 Later:
 * [ ] method for share links to have specific images for specific posts (see tax-bracket one, for example)
