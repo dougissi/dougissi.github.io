@@ -13,7 +13,7 @@ const CalledHigherLogoIcon = (props) => {
             viewBox="0 0 5512 8019"
             xmlnsXlink="http://www.w3.org/1999/xlink"
             xmlns="http://www.w3.org/2000/svg"
-            xmlnsSvg="http://www.w3.org/2000/svg">
+            xmlnssvg="http://www.w3.org/2000/svg">
             <defs id="defs1" />
             <g
                 id="g1">

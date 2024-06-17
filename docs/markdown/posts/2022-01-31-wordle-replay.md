@@ -1,4 +1,4 @@
-![Wordle Helper Share Icon](/assets/wordlereplay/wordle_replay_share_icon_1200x600.png)
+![Wordle Helper Share Icon](/assets/wordlereplay/wordle_replay_share_icon_cropped.png)
 
 ## [Update June 2024]
 I recently overhauled the Wordle Replay tool to use React and Material UI. Check out my [more recent post](/wordlereplay-react) for details.
