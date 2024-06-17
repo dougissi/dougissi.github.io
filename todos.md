@@ -18,7 +18,7 @@
 * [ ] check all links (especially that start with http and /assets)
 * [x] maybe using react-router-dom link isn't great for internal links? -- doesn't scroll up to top of page
 * [x] add category filtering by coding language
-* [ ] get better "simple node graph" image in dougissi.com/counting-polygons repo
+* [x] get better "simple node graph" image in dougissi.com/counting-polygons repo
 * [ ] move called higher book to separate Google analytics
 * [x] perhaps a bit more spacing and/or color differentiation between Blog Cards
 * [x] add summaries for each post?
