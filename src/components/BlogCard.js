@@ -13,15 +13,21 @@ export default function BlogCard({ post }) {
         to={post.path}
       >
         <CardContent>
+
           <Typography variant="h5" component="div">
             {post.title}
           </Typography>
+
           <Typography gutterBottom variant="h6" component="div" color="text.secondary">
             {post.date}
           </Typography>
-          <Typography variant="body" color="text.secondary">
-            {post.summary || "Placeholder summary information about this blog post. Isn't it great!"}
+
+          {post.tags}
+
+          <Typography color="text.secondary" sx={{ pt: 1, m: 'auto' }}>
+            {post.summary}
           </Typography>
+
         </CardContent>
         <CardMedia
           component="img"
