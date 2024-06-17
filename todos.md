@@ -28,8 +28,8 @@
 * [x] format date of each post with dayjs
 * [x] add categories/languages to Blog Card somewhere
 * [x] don't let body get much wider than 1000px
-* [ ] check all links (especially that start with http and /assets)
-* [ ] switch over dougissi.com and dougissi.github.io
+* [x] check all links (especially that start with http and /assets)
+* [x] switch over dougissi.com and dougissi.github.io
 
 Later:
 * [ ] method for share links to have specific images for specific posts (see tax-bracket one, for example)
