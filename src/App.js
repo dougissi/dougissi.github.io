@@ -189,6 +189,7 @@ function App() {
           />
         ))}
       </Routes>
+      <div style={{ margin: "10px" }}>{`© ${dayjs().year()} Douglas Issichopoulos`}</div>
     </div>
   );
 }
