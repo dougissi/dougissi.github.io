@@ -6,6 +6,7 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import WorkIcon from '@mui/icons-material/Work';
 import { Stack, Tooltip } from '@mui/material';
 import { Link } from '@mui/material';
 import CalledHigherLogoIcon from './CalledHigherLogoIcon';
@@ -61,15 +62,21 @@ export default function NavBar() {
               display: 'flex'
             }}
           >
-            <NavIconButton
-              title="GitHub"
-              href="https://github.com/dougissi"
-              icon={<GitHubIcon/>}
-            />
+            
             <NavIconButton
               title="LinkedIn"
               href="https://www.linkedin.com/in/dougissi/"
               icon={<LinkedInIcon />}
+            />
+            <NavIconButton
+              title="Resume"
+              href="/assets/DIssichopoulos_Resume.pdf"
+              icon={<WorkIcon />}
+            />
+            <NavIconButton
+              title="GitHub"
+              href="https://github.com/dougissi"
+              icon={<GitHubIcon/>}
             />
             <NavIconButton
               title="CalledHigherBook.com"
