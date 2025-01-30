@@ -39,7 +39,7 @@ The filename requires a particular format:
 
 To _embed_ anything in the posts, a hack was used to convert traditional image syntax to handle embeddings
 * example syntax: `![IFrame Embedding](embedding/embeddingId)`
-* Using the `embeddingId`, add it to the `if/else` cascade in Markdown (and reference other examples)
+* Using the `embeddingId`, add it to the `if/else` cascade in Markdown, noticing that there are different components like `BottomIFrame` and `YouTubeIFrame`
 
 Afterward, add metadata about the post to the `posts` array in `src/App.js`, following the pattern shown for adding an image, title, category tags, and language tags, etc.
 
