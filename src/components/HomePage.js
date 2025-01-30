@@ -3,15 +3,17 @@ import { Autocomplete, Stack, TextField } from "@mui/material";
 import Blog from "./Blog";
 import Markdown from "./Markdown";
 
-export default function HomePage({ posts, options, categories, languages }) {
+export default function HomePage({ posts, options, categories, technologies, languages }) {
     const [postsToShow, setPostsToShow] = useState(posts);
 
     const handleFilterChange = (event, option) => {
         if (option) {
             if (option.type === 'Category') {
                 setPostsToShow(categories[option.value]);
+            } else if (option.type === 'Technology/Framework') {
+                setPostsToShow(technologies[option.value]);
             } else if (option.type === 'Language') {
-               setPostsToShow(languages[option.value]);
+                setPostsToShow(languages[option.value]);
             }
         } else {  // clear
             setPostsToShow(posts);  // original

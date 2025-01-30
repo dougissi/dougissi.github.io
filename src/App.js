@@ -14,7 +14,8 @@ let posts = [
     mdFileName: '2024-11-15-memorize-with-me.md',
     imgFileName: '/assets/images/memorize_with_me_screenshot.png',
     categories: ['Web Development'],
-    languages: ['React', 'FastAPI', 'JavaScript', 'Python']
+    technologies: ['React', 'FastAPI'],
+    languages: ['JavaScript', 'Python']
   },
   {
     id: 13,
@@ -23,7 +24,8 @@ let posts = [
     mdFileName: '2024-06-10-wordlereplay-react.md',
     imgFileName: '/assets/wordlereplay/wordlereplay_react_mui.png',
     categories: ['Web Development'],
-    languages: ['React', 'JavaScript']
+    technologies: ['React', 'Material UI'],
+    languages: ['JavaScript']
   },
   {
     id: 12,
@@ -33,7 +35,8 @@ let posts = [
     // imgFileName: '/assets/images/haleyissi-logo.png',
     imgFileName: 'https://haleyissi.com/static/media/haleyissi-coffee-portrait-440kb.cd3af01ed82140f2b5df.jpg',
     categories: ['Web Development'],
-    languages: ['React', 'JavaScript']
+    technologies: ['React', 'Google Sheets'],
+    languages: ['JavaScript']
   },
   {
     id: 11,
@@ -42,6 +45,7 @@ let posts = [
     mdFileName: '2023-12-13-hybrid-tensor-sharing.md',
     imgFileName: '/assets/images/tensor_sharing_rest_vs_s3.png',
     categories: ['Machine Learning'],
+    technologies: ['AWS Lambda'],
     languages: ['Python']
   },
   {
@@ -51,6 +55,7 @@ let posts = [
     mdFileName: '2023-08-01-stateful-graph-algorithms-haskell.md',
     imgFileName: '/assets/graph_algos_haskell/haskell_graph_logo.png',
     categories: ['Graphs', 'Algorithms'],
+    technologies: [],
     languages: ['Haskell']
   },
   {
@@ -60,6 +65,7 @@ let posts = [
     mdFileName: '2023-05-07-parking-spot-detection.md',
     imgFileName: '/assets/images/parking_spot_detection_prototype.jpg',
     categories: ['Computer Vision', 'Internet of Things'],
+    technologies: ['Flask'],
     languages: ['Python']
   },
   {
@@ -69,6 +75,7 @@ let posts = [
     mdFileName: '2023-02-05-picar-full-self-driving.md',
     imgFileName: '/assets/images/picar.png',
     categories: ['Internet of Things'],
+    technologies: [],
     languages: ['Python']
   },
   {
@@ -78,6 +85,7 @@ let posts = [
     mdFileName: '2022-11-26-square-root.md',
     imgFileName: '/assets/square_root/sqr_root_logo.png',
     categories: ['Math', 'Algorithms'],
+    technologies: ['Raspberry Pi'],
     languages: ['Python']
   },
   {
@@ -87,6 +95,7 @@ let posts = [
     mdFileName: '2022-11-13-tax-brackets.md',
     imgFileName: '/assets/tax_brackets/next-tax-bracket_2400x1258.jpg',
     categories: ['Finance', 'Visualization'],
+    technologies: ['Jupyter Notebook'],
     languages: ['Python']
   },
   {
@@ -96,7 +105,8 @@ let posts = [
     mdFileName: '2022-01-31-wordlereplay-original.md',
     imgFileName: '/assets/wordlereplay/wordle_replay_share_icon_cropped.png',
     categories: ['Web Development'],
-    languages: ['JQuery', 'JavaScript']
+    technologies: ['JQuery'],
+    languages: ['JavaScript']
 
   },
   {
@@ -106,7 +116,8 @@ let posts = [
     mdFileName: '2021-12-04-x-y-card-flipping.md',
     imgFileName: '/assets/x_plus_y_demo/assets/flipping_cards_icon.png',
     categories: ['Web Development', 'Algorithms', 'Math'],
-    languages: ['JavaScript', 'JQuery']
+    technologies: ['JQuery'],
+    languages: ['JavaScript']
   },
   {
     id: 3,
@@ -115,6 +126,7 @@ let posts = [
     mdFileName: '2020-02-10-counting-polygons-in-node-graphs.md',
     imgFileName: 'https://www.dougissi.com/counting-polygons/assets/counting_polygons_icon.jpg',
     categories: ['Graphs', 'Algorithms'],
+    technologies: ['Jupyter Notebook'],
     languages: ['Python']
   },
   {
@@ -124,6 +136,7 @@ let posts = [
     mdFileName: '2020-02-06-counting-triangles-in-node-graphs.md',
     imgFileName: 'https://www.dougissi.com/counting-triangles/assets/counting_triangles_icon.jpg',
     categories: ['Graphs', 'Algorithms'],
+    technologies: ['Jupyter Notebook'],
     languages: ['Python']
   },
   {
@@ -133,6 +146,7 @@ let posts = [
     mdFileName: '2019-12-07-export-apple-contacts-to-csv.md',
     imgFileName: '/assets/images/apple_contacts_football.jpg',
     categories: ['Tools'],
+    technologies: [],
     languages: ['AppleScript']
   }
 ];
@@ -157,6 +171,9 @@ posts = posts.map((post) => {
         {post.categories.map(cat => (
           <Chip key={`chip-cat-${cat}-post${post.id}`} label={cat} color="primary" variant="outlined" />
         ))}
+        {post.technologies.map(tech => (
+          <Chip key={`chip-tech-${tech}-post${post.id}`} label={tech} color="secondary" variant="outlined" />
+        ))}
         {post.languages.map(lang => (
           <Chip key={`chip-lang-${lang}-post${post.id}`} label={lang} color="success" variant="outlined" />
         ))}
@@ -167,6 +184,7 @@ posts = posts.map((post) => {
 
 // get unique categories and languages
 const categories = {};
+const technologies = {};
 const languages = {};
 posts.forEach(post => {
   const addToObj = (obj, key) => {
@@ -176,12 +194,14 @@ posts.forEach(post => {
     obj[key].push(post);
   };
   post.categories.forEach(cat => addToObj(categories, cat));
+  post.technologies.forEach(tech => addToObj(technologies, tech));
   post.languages.forEach(lang => addToObj(languages, lang));
 });
 
 // combine categories and languages into single options list
 const options = [];
 Object.keys(categories).sort().forEach(cat => options.push({type: 'Category', value: cat}));
+Object.keys(technologies).sort().forEach(tech => options.push({type: 'Technology/Framework', value: tech}));
 Object.keys(languages).sort().forEach(lang => options.push({type: 'Language', value: lang}));
 
 function App() {
@@ -189,7 +209,7 @@ function App() {
     <div className="App">
       <NavBar />
       <Routes>
-        <Route path='/' element={<HomePage posts={posts} options={options} categories={categories} languages={languages} />} />
+        <Route path='/' element={<HomePage posts={posts} options={options} categories={categories} technologies={technologies} languages={languages} />} />
         {posts.map(post => (
           <Route
             key={`route-${post.path}`}
