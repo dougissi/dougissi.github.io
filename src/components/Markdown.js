@@ -118,6 +118,8 @@ function Markdown({ fileName }) {
                                 return <BottomIFrame src="https://www.dougissi.com/counting-polygons/jupyter-notebook.html" title={alt} />;
                             } else if (embeddingId === 'counting-triangles-notebook') {
                                 return <BottomIFrame src="https://www.dougissi.com/counting-triangles/jupyter-notebook.html" title={alt} />;
+                            } else if (embeddingId === 'memorize-with-me-youtube') {
+                                return <YouTubeIFrame src="https://www.youtube.com/embed/XkOAkyWKdr4" title={alt} />;
                             }
                         }
 

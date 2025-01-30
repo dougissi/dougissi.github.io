@@ -8,6 +8,15 @@ import { Chip, Stack } from '@mui/material';
 
 let posts = [
   {
+    id: 15,
+    title: 'Memorize With Me: AI Memorization Partner (Proof-of-Concept)',
+    summary: 'Using a FastAPI (Python) backend server to query OpenAI endpoints and a React (Javascript) frontend, this proof-of-concept AI memorization partner application demonstrates its ability to help with Bible memorization',
+    mdFileName: '2024-11-15-memorize-with-me.md',
+    imgFileName: '/assets/images/memorize_with_me_screenshot.png',
+    categories: ['Web Development'],
+    languages: ['React', 'FastAPI', 'JavaScript', 'Python']
+  },
+  {
     id: 13,
     title: 'WordleReplay.com Overhaul with React and Material UI',
     summary: 'Complete rewrite of WordleReplay.com web app using React and Material UI, greatly improving the user experience compared to the original from 2022 that used only JQuery and Bootstrap',
