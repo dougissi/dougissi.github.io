@@ -14,7 +14,7 @@ let posts = [
     mdFileName: '2024-11-15-memorize-with-me.md',
     imgFileName: '/assets/images/memorize_with_me_screenshot.png',
     categories: ['Web Development'],
-    technologies: ['React', 'FastAPI'],
+    technologies: ['OpenAI', 'React', 'FastAPI'],
     languages: ['JavaScript', 'Python']
   },
   {
