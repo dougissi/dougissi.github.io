@@ -120,6 +120,8 @@ function Markdown({ fileName }) {
                                 return <BottomIFrame src="https://www.dougissi.com/counting-triangles/jupyter-notebook.html" title={alt} />;
                             } else if (embeddingId === 'memorize-with-me-youtube') {
                                 return <YouTubeIFrame src="https://www.youtube.com/embed/XkOAkyWKdr4" title={alt} />;
+                            } else if (embeddingId === 'party-split-demo-youtube') {
+                                return <YouTubeIFrame src="https://www.youtube.com/embed/PAr5QHa5VOo" title={alt} />;
                             }
                         }
 

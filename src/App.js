@@ -8,6 +8,16 @@ import { Chip, Stack } from '@mui/material';
 
 let posts = [
   {
+    id: 16,
+    title: 'Party Split: AI Receipt Splitter (Proof-of-Concept)',
+    summary: 'Using a FastAPI (Python) backend server to query OpenAI endpoints and a React (Typescript) frontend, this proof-of-concept AI receipt splitting tool demonstrates the ease with which we all can finally split the bill for dinner!',
+    mdFileName: '2025-03-24-party-split.md',
+    imgFileName: '/assets/images/party_split_thumbnail.png',
+    categories: ['Web Development'],
+    technologies: ['OpenAI', 'React', 'FastAPI'],
+    languages: ['Typescript', 'Python']
+  },
+  {
     id: 15,
     title: 'Memorize With Me: AI Memorization Partner (Proof-of-Concept)',
     summary: 'Using a FastAPI (Python) backend server to query OpenAI endpoints and a React (Javascript) frontend, this proof-of-concept AI memorization partner application demonstrates its ability to help with Bible memorization',
