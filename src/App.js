@@ -1,9 +1,10 @@
 import './App.css';
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import dayjs from 'dayjs';
 import NavBar from './components/NavBar';
 import HomePage from './components/HomePage';
 import BlogPage from './components/BlogPage';
+import TripPage from './components/TripPage';
 import { Chip, Stack } from '@mui/material';
 
 let posts = [
@@ -40,7 +41,7 @@ let posts = [
   {
     id: 12,
     title: 'HaleyIssi.com: React App on GitHub Pages with Google Sheets Database',
-    summary: 'My wife Haley has been growing some of her Instagram accounts around some her hobbies like latte art and cooking, so we desired to create a simple website where we could post referral links for products on Amazon',
+    summary: 'My (now ex-)wife Haley has been growing some of her Instagram accounts around some her hobbies like latte art and cooking, so we desired to create a simple website where we could post referral links for products on Amazon',
     mdFileName: '2024-04-18-haleyissi.md',
     // imgFileName: '/assets/images/haleyissi-logo.png',
     imgFileName: 'https://haleyissi.com/static/media/haleyissi-coffee-portrait-440kb.cd3af01ed82140f2b5df.jpg',
@@ -215,9 +216,10 @@ Object.keys(technologies).sort().forEach(tech => options.push({type: 'Technology
 Object.keys(languages).sort().forEach(lang => options.push({type: 'Language', value: lang}));
 
 function App() {
+  const hideNav = useLocation().pathname.startsWith('/trips');
   return (
     <div className="App">
-      <NavBar />
+      {!hideNav && <NavBar />}
       <Routes>
         <Route path='/' element={<HomePage posts={posts} options={options} categories={categories} technologies={technologies} languages={languages} />} />
         {posts.map(post => (
@@ -227,6 +229,16 @@ function App() {
             element={<BlogPage post={post} />}
           />
         ))}
+        <Route
+          path="trips/zambia"
+          element={
+            <TripPage
+              title="Zambia Mission Trip — June 5-15, 2026"
+              mdFileName="trips/zambia.md"
+              qrBasePath="/assets/zambia/qr"
+            />
+          }
+        />
       </Routes>
       <div style={{ margin: "10px" }}>{`© ${dayjs().year()} Douglas Issichopoulos`}</div>
     </div>
