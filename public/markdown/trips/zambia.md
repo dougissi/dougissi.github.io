@@ -1,6 +1,12 @@
 **Lusaka, Zambia · June 5–15, 2026**
 
-Our church, Garden Church, is sending a small team to scope out, pray into, and come alongside our long-time friends and outreach partners, Robb & Naomi Sheneberger. Zambia is strategically located, neighboring eight African nations. The Hoogendam family of four, along with Lexi, Leanne, Taiyler, and Doug, will be in Lusaka building the bridge between Garden and Zambia with prayer rooms, teaching, discipleship, and creating an extensive children's library and computer lab to equip the next generation.
+Our church, Garden Church, is sending a small team to Lusaka, Zambia — the Hoogendam family of four, along with Lexi, Leanne, Taiyler, and Doug — to scope out, pray into, and come alongside our long-time friends and outreach partners, Robb & Naomi Sheneberger.
+
+[![Robb & Naomi Sheneberger](/assets/zambia/shenebergers.jpg)](https://www.instagram.com/p/DUvAPl6DTQ6/)
+
+Zambia is strategically located, neighboring eight African nations. While in Lusaka, we'll be building the bridge between Garden and Zambia through prayer rooms, teaching, and discipleship, and creating an extensive children's library and computer lab to equip the next generation. Each of us is excited to use our unique giftings to serve, equip, and encourage — and to learn from our brothers and sisters in Africa.
+
+Short-term mission trips are sometimes questioned for their effectiveness relative to the cost. Having seen the value of both long-term and short-term work, we believe this trip is worth the prayer and resources behind it — and we trust that everyone involved, both our team and those we'll serve, will be deeply impacted by the experience.
 
 ---
 
@@ -39,16 +45,6 @@ Our goal is **$3,500 per person**.
 - Email: [dougissi@gmail.com](mailto:dougissi@gmail.com)
 - Phone / text: [650-521-3970](tel:+16505213970)
 - Drop-off: 208 6th Street, Seal Beach, CA 90740
-
----
-
-## Why We're Going
-
-We know many church-goers question the effectiveness of short-term mission trips relative to the investment. Having participated in both long-term and short-term trips, we see the benefits of both — and we know our children will be forever transformed by this experience.
-
-It's been a dream and vision of ours for many years to return to the mission field with our children some day. As many of you know, Dave and Lins met on the mission field in 2005, and this is our first time going back — as a family of four now.
-
-We are excited to use our unique, individual giftings to serve, equip, and encourage others, as well as learn from our brothers and sisters in Africa.
 
 ---
 
