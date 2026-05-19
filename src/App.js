@@ -4,6 +4,7 @@ import dayjs from 'dayjs';
 import NavBar from './components/NavBar';
 import HomePage from './components/HomePage';
 import BlogPage from './components/BlogPage';
+import TripPage from './components/TripPage';
 import { Chip, Stack } from '@mui/material';
 
 let posts = [
@@ -227,6 +228,16 @@ function App() {
             element={<BlogPage post={post} />}
           />
         ))}
+        <Route
+          path="trips/zambia"
+          element={
+            <TripPage
+              title="Zambia Mission Trip — June 5-15, 2026"
+              mdFileName="trips/zambia.md"
+              qrBasePath="/assets/zambia/qr"
+            />
+          }
+        />
       </Routes>
       <div style={{ margin: "10px" }}>{`© ${dayjs().year()} Douglas Issichopoulos`}</div>
     </div>
