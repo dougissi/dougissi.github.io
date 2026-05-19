@@ -1,5 +1,5 @@
 import './App.css';
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import dayjs from 'dayjs';
 import NavBar from './components/NavBar';
 import HomePage from './components/HomePage';
@@ -216,9 +216,10 @@ Object.keys(technologies).sort().forEach(tech => options.push({type: 'Technology
 Object.keys(languages).sort().forEach(lang => options.push({type: 'Language', value: lang}));
 
 function App() {
+  const hideNav = useLocation().pathname.startsWith('/trips');
   return (
     <div className="App">
-      <NavBar />
+      {!hideNav && <NavBar />}
       <Routes>
         <Route path='/' element={<HomePage posts={posts} options={options} categories={categories} technologies={technologies} languages={languages} />} />
         {posts.map(post => (
