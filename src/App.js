@@ -41,7 +41,7 @@ let posts = [
   {
     id: 12,
     title: 'HaleyIssi.com: React App on GitHub Pages with Google Sheets Database',
-    summary: 'My wife Haley has been growing some of her Instagram accounts around some her hobbies like latte art and cooking, so we desired to create a simple website where we could post referral links for products on Amazon',
+    summary: 'My (now ex-)wife Haley has been growing some of her Instagram accounts around some her hobbies like latte art and cooking, so we desired to create a simple website where we could post referral links for products on Amazon',
     mdFileName: '2024-04-18-haleyissi.md',
     // imgFileName: '/assets/images/haleyissi-logo.png',
     imgFileName: 'https://haleyissi.com/static/media/haleyissi-coffee-portrait-440kb.cd3af01ed82140f2b5df.jpg',

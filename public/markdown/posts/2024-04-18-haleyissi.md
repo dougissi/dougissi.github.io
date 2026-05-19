@@ -20,7 +20,7 @@
 
 
 ## Motivation
-My wife Haley has been growing some of her Instagram accounts around some her hobbies like latte art and cooking, so we desired to create a simple website where we could post referral links for products on Amazon.
+My (now ex-)wife Haley has been growing some of her Instagram accounts around some her hobbies like latte art and cooking, so we desired to create a simple website where we could post referral links for products on Amazon.
 
 For those of you following along who may be creating your own web app, I'll write what I did as second-person imperative ("do this") rather than first-person simple past tense ("I did this"). Just keep an eye out for **haleyissi**-specific commands and adjust according to your needs.
 
