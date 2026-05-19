@@ -8,6 +8,8 @@ Zambia is strategically located, neighboring eight African nations. While in Lus
 
 Short-term mission trips are sometimes questioned for their effectiveness relative to the cost. Having seen the value of both long-term and short-term work, we believe this trip is worth the prayer and resources behind it — and we trust that everyone involved, both our team and those we'll serve, will be deeply impacted by the experience.
 
+Returning to the mission field with their children has been a vision of the Hoogendams' for many years. Dave and Lins met on the mission field in 2005, and this is their first time going back — as a family of four now.
+
 ---
 
 ## 💛 Donate
@@ -20,11 +22,12 @@ Our goal is **$3,500 per person**.
 
 ## 🎁 Items We Need
 
-### Buy in America (bring to Doug)
+### Buy in America
 
 - **English Bibles** — preferably New King James Version (NKJV)
 - **Soccer balls** ⭐ *highest priority* — quality and pricing in Zambia are not as favorable
 - **Ball pumps and needles**
+- **(Used) Smart Phones**
 
 ### Can be bought in Zambia (donate funds toward these)
 
@@ -33,18 +36,9 @@ Our goal is **$3,500 per person**.
 
 ### Needs more information
 
-- **Computers / laptops with Microsoft Office installed**
+- **Laptops with Microsoft Office installed**
   - Still checking whether Microsoft Office can be purchased one-time or only as a subscription.
   - Mid-range laptops in Zambia run about \$650–$1,000.
-
----
-
-## 📦 How to Get Items to Doug
-
-**Doug Issichopoulos**
-- Email: [dougissi@gmail.com](mailto:dougissi@gmail.com)
-- Phone / text: [650-521-3970](tel:+16505213970)
-- Drop-off: 208 6th Street, Seal Beach, CA 90740
 
 ---
 
