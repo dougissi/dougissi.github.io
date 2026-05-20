@@ -14,6 +14,6 @@ module.exports = {
   '/trips/zambia': {
     title: 'Zambia Mission Trip — June 5-15, 2026',
     description: 'Garden Church mission trip to Lusaka, Zambia — June 5-15, 2026. See needs and how to support.',
-    image: '/assets/zambia/chesed-academy.jpg',
+    image: '/assets/zambia/chesed-academy-og.jpg',
   },
 };
