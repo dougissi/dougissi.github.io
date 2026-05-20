@@ -1,14 +1,18 @@
-// Per-route social-share meta overrides.
+// Manual social-share meta overrides, keyed by route path.
 //
-// At build time, scripts/generate-og-routes.js reads this file and writes a
-// static <route>/index.html for each entry, with the og:* meta tags swapped.
-// Routes NOT listed here fall back to the defaults in public/index.html
-// (currently the Doug headshot share card).
+// At build time, scripts/generate-og-routes.js writes a static
+// <route>/index.html for each entry here, with the og:* meta tags swapped.
 //
-// To add an override for a post, add an entry keyed by its route path, e.g.:
-//   '/party-split': { image: '/assets/images/party_split_thumbnail.png' }
+// Every post in src/posts.json already gets an auto-generated entry (title
+// from post.title, description from post.summary, image from post.imgFileName).
+// Use this file for:
+//   1. Routes that aren't posts (e.g. /trips/zambia)
+//   2. Per-post overrides (an entry here takes precedence over the auto entry)
 //
-// Fields are all optional. Set image: null to omit the share image entirely.
+// To override a post's share image, add:
+//   '/<post-slug>': { image: '/assets/.../custom-og.jpg' }
+//
+// Set image: null to omit the share image entirely for a route.
 
 module.exports = {
   '/trips/zambia': {
