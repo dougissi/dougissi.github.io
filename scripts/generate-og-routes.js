@@ -1,16 +1,20 @@
 #!/usr/bin/env node
 //
-// Writes a static <route>/index.html for each entry in og-routes.js, with the
-// social-share meta tags swapped. Runs after `npm run build` and before the
-// build/ directory is copied into docs/ for GitHub Pages deploy.
+// Writes a static <route>/index.html for each entry in og-routes.js AND for
+// each post in src/posts.json, with the social-share meta tags swapped. Runs
+// after `npm run build` and before the build/ directory is copied into docs/
+// for GitHub Pages deploy.
 //
-// Routes NOT listed in og-routes.js fall back to the default index.html
-// (handled by GitHub Pages 404 redirect into the SPA).
+// Per-post overrides are auto-generated from posts.json (title → og:title,
+// summary → og:description, imgFileName → og:image). To override the auto-
+// generated entry for a specific post, add an entry keyed by its route in
+// og-routes.js — manual overrides take precedence.
 
 const fs = require('fs');
 const path = require('path');
 
-const ROUTES = require('../og-routes.js');
+const POSTS = require('../src/posts.json');
+const MANUAL_ROUTES = require('../og-routes.js');
 const BUILD_DIR = path.resolve(__dirname, '..', 'build');
 const SITE_URL = 'https://www.dougissi.com';
 
@@ -79,6 +83,21 @@ function buildHtmlForRoute(route, override) {
   return html;
 }
 
+// Auto-generate overrides for every post in posts.json.
+// Route is derived from mdFileName: '2025-03-24-party-split.md' → '/party-split'
+const autoRoutes = {};
+for (const post of POSTS) {
+  const path = post.mdFileName.slice(11, -3);
+  autoRoutes[`/${path}`] = {
+    title: post.title,
+    description: post.summary,
+    image: post.imgFileName,
+  };
+}
+
+// Manual entries in og-routes.js take precedence over auto-generated ones.
+const ROUTES = { ...autoRoutes, ...MANUAL_ROUTES };
+
 let count = 0;
 for (const [route, override] of Object.entries(ROUTES)) {
   if (!route.startsWith('/')) {
@@ -89,7 +108,6 @@ for (const [route, override] of Object.entries(ROUTES)) {
   const outDir = path.join(BUILD_DIR, route);
   fs.mkdirSync(outDir, { recursive: true });
   fs.writeFileSync(path.join(outDir, 'index.html'), html);
-  console.log(`✓ wrote build${route}/index.html`);
   count++;
 }
-console.log(`Generated ${count} per-route HTML file(s).`);
+console.log(`Generated ${count} per-route HTML file(s) (${Object.keys(autoRoutes).length} auto from posts.json + ${Object.keys(MANUAL_ROUTES).length} manual from og-routes.js).`);
