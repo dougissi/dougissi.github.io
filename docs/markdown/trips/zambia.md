@@ -20,28 +20,14 @@ Our goal is **$3,500 per person**.
 
 [**→ Donate via Garden Church**](https://gardenchurch.managedmissions.com/Donations/Donate/100202)
 
+![Zambia Fundraiser Progress](embedding/zambia-fundraiser-progress)
+
 ---
 
 ## 🎁 Items We Need
 
-### Buy in America
-
-- **English Bibles** — preferably New King James Version (NKJV)
-- **Soccer balls** ⭐ *highest priority* — quality and pricing in Zambia are not as favorable
-- **Ball pumps and needles**
+- [**→ Shop our Amazon wish list**](https://www.amazon.com/hz/wishlist/ls/1TXJTJPNACLTO)
 - **(Used) Smart Phones**
+- **(Used) Laptops**
 
-### Can be bought in Zambia (donate funds toward these)
-
-- School supplies
-- Musical instruments for the preschool
-
-### Needs more information
-
-- **Laptops with Microsoft Office installed**
-  - Still checking whether Microsoft Office can be purchased one-time or only as a subscription.
-  - Mid-range laptops in Zambia run about \$650–$1,000.
-
----
-
-*Page last updated: May 19, 2026. Check back for updates.*
+*Page last updated: May 26, 2026. Check back for updates.*
