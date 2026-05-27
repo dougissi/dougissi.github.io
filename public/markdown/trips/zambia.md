@@ -20,6 +20,8 @@ Our goal is **$3,500 per person**.
 
 [**→ Donate via Garden Church**](https://gardenchurch.managedmissions.com/Donations/Donate/100202)
 
+![Zambia Fundraiser Progress](embedding/zambia-fundraiser-progress)
+
 ---
 
 ## 🎁 Items We Need
@@ -28,4 +30,4 @@ Our goal is **$3,500 per person**.
 - **(Used) Smart Phones**
 - **(Used) Laptops**
 
-*Page last updated: May 19, 2026. Check back for updates.*
+*Page last updated: May 26, 2026. Check back for updates.*

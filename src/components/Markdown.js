@@ -8,6 +8,7 @@ import 'katex/dist/katex.min.css'; // `rehype-katex` does not import the CSS for
 import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter';
 import { materialDark as style } from 'react-syntax-highlighter/dist/esm/styles/prism';  // also consider hljs instead of prism
 import { convertToId } from '../utils';
+import ZambiaFundraiserProgress from './ZambiaFundraiserProgress';
 
 
 const MARKDOWN_FOLDER = '/markdown';
@@ -122,6 +123,8 @@ function Markdown({ fileName }) {
                                 return <YouTubeIFrame src="https://www.youtube.com/embed/XkOAkyWKdr4" title={alt} />;
                             } else if (embeddingId === 'party-split-demo-youtube') {
                                 return <YouTubeIFrame src="https://www.youtube.com/embed/PAr5QHa5VOo" title={alt} />;
+                            } else if (embeddingId === 'zambia-fundraiser-progress') {
+                                return <ZambiaFundraiserProgress />;
                             }
                         }
 

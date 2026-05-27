@@ -1,0 +1,98 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Scheduled scraper that publishes Zambia 2026 fundraising totals to S3.
+
+Parameters:
+  UsernameParameterName:
+    Type: String
+    Default: /dougissi/zambia-scraper/mm-username
+    Description: Name of the SSM SecureString parameter holding the ManagedMissions email.
+  PasswordParameterName:
+    Type: String
+    Default: /dougissi/zambia-scraper/mm-password
+    Description: Name of the SSM SecureString parameter holding the ManagedMissions password.
+  ScheduleExpression:
+    Type: String
+    Default: rate(15 minutes)
+  S3Key:
+    Type: String
+    Default: zambia-totals.json
+
+Resources:
+  TotalsBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Sub dougissi-zambia-scraper-${AWS::AccountId}
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        IgnorePublicAcls: true
+        BlockPublicPolicy: false
+        RestrictPublicBuckets: false
+      OwnershipControls:
+        Rules:
+          - ObjectOwnership: BucketOwnerEnforced
+      CorsConfiguration:
+        CorsRules:
+          - AllowedMethods: [GET, HEAD]
+            AllowedOrigins:
+              - https://dougissi.com
+              - https://www.dougissi.com
+              - http://localhost:3000
+            AllowedHeaders: ['*']
+            MaxAge: 300
+
+  TotalsBucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref TotalsBucket
+      PolicyDocument:
+        Statement:
+          - Sid: PublicReadOnTotalsJson
+            Effect: Allow
+            Principal: '*'
+            Action: s3:GetObject
+            Resource: !Sub arn:aws:s3:::${TotalsBucket}/${S3Key}
+
+  ScraperFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: dougissi-zambia-scraper
+      CodeUri: ./src/
+      Handler: handler.lambda_handler
+      Runtime: python3.11
+      Timeout: 30
+      MemorySize: 256
+      Architectures: [arm64]
+      Environment:
+        Variables:
+          SSM_USERNAME_PARAM: !Ref UsernameParameterName
+          SSM_PASSWORD_PARAM: !Ref PasswordParameterName
+          S3_BUCKET: !Ref TotalsBucket
+          S3_KEY: !Ref S3Key
+      Policies:
+        - Statement:
+            - Effect: Allow
+              Action: ssm:GetParameter
+              Resource:
+                - !Sub arn:aws:ssm:${AWS::Region}:${AWS::AccountId}:parameter${UsernameParameterName}
+                - !Sub arn:aws:ssm:${AWS::Region}:${AWS::AccountId}:parameter${PasswordParameterName}
+            - Effect: Allow
+              Action: kms:Decrypt
+              Resource: !Sub arn:aws:kms:${AWS::Region}:${AWS::AccountId}:alias/aws/ssm
+        - S3WritePolicy:
+            BucketName: !Ref TotalsBucket
+      Events:
+        Schedule:
+          Type: Schedule
+          Properties:
+            Schedule: !Ref ScheduleExpression
+            Description: Refresh Zambia totals JSON
+
+Outputs:
+  TotalsUrl:
+    Description: Public URL of the totals JSON — wire this into the React component.
+    Value: !Sub https://${TotalsBucket}.s3.${AWS::Region}.amazonaws.com/${S3Key}
+  BucketName:
+    Value: !Ref TotalsBucket
+  FunctionName:
+    Value: !Ref ScraperFunction
