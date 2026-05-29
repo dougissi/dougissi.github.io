@@ -87,6 +87,7 @@ Resources:
           Properties:
             Schedule: !Ref ScheduleExpression
             Description: Refresh Zambia totals JSON
+            Enabled: false
 
 Outputs:
   TotalsUrl:
